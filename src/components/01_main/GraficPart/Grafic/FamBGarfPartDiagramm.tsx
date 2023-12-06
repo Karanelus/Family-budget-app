@@ -4,7 +4,6 @@ const FamBGarfPartDiagramm = () => {
   const { feeList, feePercentCount, partnersInfo, percentCounting } = useFamBContextContainer();
 
   const summarySalary = partnersInfo.salary_1 + partnersInfo.salary_2;
-  const lalalalal = feePercentCount(summarySalary, 1954);
   const summaryFee = (): number => {
     let sum = 0;
 

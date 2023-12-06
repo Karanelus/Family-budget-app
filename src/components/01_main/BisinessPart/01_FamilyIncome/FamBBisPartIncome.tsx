@@ -51,14 +51,14 @@ const FamBBisPartIncome = () => {
               className="bg-slate-400 rounded-md px-1"
             />
             <button onClick={onClickEditName} data-clicked={1} className="absolute top-0 -right-6 aspect-square w-7">
-              <img src="/img/icons/edit.svg" alt="" className="w-full" />
+              <img src={process.env.PUBLIC_URL + "/img/icons/edit.svg"} alt="" className="w-full" />
             </button>
           </label>
         ) : (
           <div className="relative">
             <p className="text-center">{partnersInfo.partner_1}</p>
             <button onClick={onClickEditName} data-clicked={1} className="absolute top-0 -right-6 aspect-square w-7">
-              <img src="/img/icons/edit.svg" alt="" className="w-full" />
+              <img src={process.env.PUBLIC_URL + "/img/icons/edit.svg"} alt="" className="w-full" />
             </button>
           </div>
         )}
@@ -84,14 +84,14 @@ const FamBBisPartIncome = () => {
               className="bg-slate-400 rounded-md px-1"
             />
             <button onClick={onClickEditName} data-clicked={2} className="absolute top-0 -right-6 aspect-square w-7">
-              <img src="/img/icons/edit.svg" alt="" className="w-full" />
+              <img src={process.env.PUBLIC_URL + "/img/icons/edit.svg"} alt="" className="w-full" />
             </button>
           </label>
         ) : (
           <div className="relative">
             <p className="text-center">{partnersInfo.partner_2}</p>
             <button onClick={onClickEditName} data-clicked={2} className="absolute top-0 -right-6 aspect-square w-7">
-              <img src="/img/icons/edit.svg" alt="" className="w-full" />
+              <img src={process.env.PUBLIC_URL + "/img/icons/edit.svg"} alt="" className="w-full" />
             </button>
           </div>
         )}
