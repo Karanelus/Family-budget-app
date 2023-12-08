@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Family-budget-app/static/css/main.fcdebc6c.css",
-    "main.js": "/Family-budget-app/static/js/main.6dd791ff.js",
+    "main.css": "/Family-budget-app/static/css/main.a3438c8c.css",
+    "main.js": "/Family-budget-app/static/js/main.5ca3979d.js",
     "index.html": "/Family-budget-app/index.html",
-    "main.fcdebc6c.css.map": "/Family-budget-app/static/css/main.fcdebc6c.css.map",
-    "main.6dd791ff.js.map": "/Family-budget-app/static/js/main.6dd791ff.js.map"
+    "main.a3438c8c.css.map": "/Family-budget-app/static/css/main.a3438c8c.css.map",
+    "main.5ca3979d.js.map": "/Family-budget-app/static/js/main.5ca3979d.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcdebc6c.css",
-    "static/js/main.6dd791ff.js"
+    "static/css/main.a3438c8c.css",
+    "static/js/main.5ca3979d.js"
   ]
 }
