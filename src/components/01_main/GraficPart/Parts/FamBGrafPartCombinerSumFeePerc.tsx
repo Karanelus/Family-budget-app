@@ -9,10 +9,10 @@ const FamBGrafPartCombinerSumFeePerc = ({ summarySalaryFunc }: FamBGrafPartCombi
 
   return (
     <>
-      {feeList.map((el) => {
+      {feeList.map((el, index) => {
         if (el.name !== "" && !el.isEdited) {
           return (
-            <article className=" flex flex-row justify-between relative">
+            <article key={index} className=" flex flex-row justify-between relative">
               <h3>{el.name}</h3>
               <h3 key={feePercentCount(summarySalaryFunc(partnersInfo), el.feeCost)} className="animate-sum">
                 {feePercentCount(summarySalaryFunc(partnersInfo), el.feeCost)}

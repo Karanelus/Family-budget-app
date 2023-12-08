@@ -1,21 +1,30 @@
 import { useFamBContextContainer } from "../../../../../context/FamBContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FamBBisPartFeesRender from "./FamBBisPartFeesRender";
 import { v4 as uuidv4 } from "uuid";
+import AddIcon from "../../../../../svg/AddIcon";
 
 const FamBBisPartFees = () => {
-  const { diagramColorPalette, feeList, setFeeList } = useFamBContextContainer();
+  const { diagramColorPalette, setFeeList } = useFamBContextContainer();
+  const [colorNoRepeat, setColorNoRepeat] = useState<string[]>([]);
+
   const randomColor = (): string => {
-    return diagramColorPalette[Math.trunc(Math.random() * 9)];
+    let randomColor = diagramColorPalette[Math.trunc(Math.random() * 9)];
+    setColorNoRepeat((prev) => [...prev, randomColor]);
+
+    if (colorNoRepeat.length >= 3) {
+      setColorNoRepeat((prev) => prev.slice(1));
+    }
+
+    return randomColor;
   };
 
   useEffect(() => {
-    console.log(feeList);
-  }, [feeList]);
+    console.log(colorNoRepeat);
+  }, [colorNoRepeat]);
 
   const onClickAddFee = () => {
     setFeeList((prev) => [...prev, { id: uuidv4(), name: "", color: randomColor(), feeCost: 0, isEdited: true }]);
-    console.log(feeList);
   };
 
   return (
@@ -24,8 +33,11 @@ const FamBBisPartFees = () => {
       <section className="w-full flex flex-col gap-2 ">
         <FamBBisPartFeesRender />
       </section>
-      <button onClick={onClickAddFee} className="py-1 px-2 bg-slate-500 rounded-md grid place-items-center h-8">
-        <p>Add additional fee</p>
+      <button
+        onClick={onClickAddFee}
+        className="py-1 px-2 bg-gray-400 rounded-md grid place-items-center h-8 aspect-square"
+      >
+        <AddIcon fill="black" />
       </button>
     </div>
   );

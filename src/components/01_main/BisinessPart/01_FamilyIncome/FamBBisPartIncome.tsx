@@ -1,5 +1,6 @@
 import { useFamBContextContainer } from "../../../../context/FamBContext";
 import useLocalStorage from "../../../../hooks/useLocalStorage";
+import EditIcon from "../../../../svg/EditIcon";
 
 type isEditingType = {
   edited_1: boolean;
@@ -39,7 +40,7 @@ const FamBBisPartIncome = () => {
   };
 
   return (
-    <article className="grid grid-cols-2 place-items-center mb-4">
+    <article className="grid xl:grid-cols-2 place-items-center mb-4">
       <div>
         {isEditing.edited_1 ? (
           <label className="relative grid mb-1 place-items-center">
@@ -50,15 +51,23 @@ const FamBBisPartIncome = () => {
               data-clicked={1}
               className="bg-slate-400 rounded-md px-1"
             />
-            <button onClick={onClickEditName} data-clicked={1} className="absolute top-0 -right-6 aspect-square w-7">
-              <img src={process.env.PUBLIC_URL + "/img/icons/edit.svg"} alt="" className="w-full" />
+            <button
+              onClick={onClickEditName}
+              data-clicked={1}
+              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 rounded-md"
+            >
+              <EditIcon fill="black" />
             </button>
           </label>
         ) : (
           <div className="relative">
             <p className="text-center">{partnersInfo.partner_1}</p>
-            <button onClick={onClickEditName} data-clicked={1} className="absolute top-0 -right-6 aspect-square w-7">
-              <img src={process.env.PUBLIC_URL + "/img/icons/edit.svg"} alt="" className="w-full" />
+            <button
+              onClick={onClickEditName}
+              data-clicked={1}
+              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 rounded-md"
+            >
+              <EditIcon fill="black" />
             </button>
           </div>
         )}
@@ -69,7 +78,7 @@ const FamBBisPartIncome = () => {
             value={partnersInfo.salary_1}
             onChange={onChangeSalary}
             data-clicked={1}
-            className="text-black py-1 px-2 rounded-md bg-gradient-to-r from-slate-500 to-slate-400 h-8"
+            className="text-black py-1 px-2 rounded-md bg-gradient-to-r bg-gray-400 h-8"
           />
         </label>
       </div>
@@ -83,15 +92,23 @@ const FamBBisPartIncome = () => {
               data-clicked={2}
               className="bg-slate-400 rounded-md px-1"
             />
-            <button onClick={onClickEditName} data-clicked={2} className="absolute top-0 -right-6 aspect-square w-7">
-              <img src={process.env.PUBLIC_URL + "/img/icons/edit.svg"} alt="" className="w-full" />
+            <button
+              onClick={onClickEditName}
+              data-clicked={2}
+              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 rounded-md"
+            >
+              <EditIcon fill="black" />
             </button>
           </label>
         ) : (
           <div className="relative">
             <p className="text-center">{partnersInfo.partner_2}</p>
-            <button onClick={onClickEditName} data-clicked={2} className="absolute top-0 -right-6 aspect-square w-7">
-              <img src={process.env.PUBLIC_URL + "/img/icons/edit.svg"} alt="" className="w-full" />
+            <button
+              onClick={onClickEditName}
+              data-clicked={2}
+              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 rounded-md"
+            >
+              <EditIcon fill="black" />
             </button>
           </div>
         )}
@@ -102,7 +119,7 @@ const FamBBisPartIncome = () => {
             value={partnersInfo.salary_2}
             onChange={onChangeSalary}
             data-clicked={2}
-            className="text-black py-1 px-2 rounded-md bg-gradient-to-r from-slate-500 to-slate-400 h-8"
+            className="text-black py-1 px-2 rounded-md bg-gradient-to-r bg-gray-400 h-8"
           />
         </label>
       </div>

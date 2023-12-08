@@ -16,7 +16,7 @@ const FamBGarfPartDiagramm = () => {
 
   const statusReport = (): string => {
     let rayPlasing = Number(percentCounting(summarySalary, summaryFee()));
-    let statusReportText = `conic-gradient(gray ${rayPlasing}%`;
+    let statusReportText = `conic-gradient(#adadad ${rayPlasing}%`;
 
     if (feeList.length === 0) {
       statusReportText += `, #0000 0`;
@@ -34,10 +34,7 @@ const FamBGarfPartDiagramm = () => {
     return statusReportText;
   };
 
-  console.log(statusReport());
-
   const componentStyle = {
-    mask: "radial-gradient(farthest-side,#0000 75%,#000 75%",
     background: statusReport(),
   };
 

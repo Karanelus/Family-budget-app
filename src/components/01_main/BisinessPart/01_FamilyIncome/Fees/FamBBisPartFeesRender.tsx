@@ -1,5 +1,7 @@
 import { useFamBContextContainer } from "../../../../../context/FamBContext";
-// import { v4 as uuidv4 } from "uuid";
+import AddIcon from "../../../../../svg/AddIcon";
+import DeleteIcon from "../../../../../svg/DeleteIcon";
+import EditIcon from "../../../../../svg/EditIcon";
 
 const FamBBisPartFeesRender = () => {
   const { feeList, setFeeList } = useFamBContextContainer();
@@ -12,7 +14,9 @@ const FamBBisPartFeesRender = () => {
             prev.map((item) => {
               if (item.id === el.id) {
                 return { ...item, name: e.target.value };
-              } else return item;
+              }
+
+              return item;
             })
           );
         };
@@ -22,7 +26,9 @@ const FamBBisPartFeesRender = () => {
             prev.map((item) => {
               if (item.id === el.id) {
                 return { ...item, feeCost: e.target.value === "" ? 0 : parseInt(e.target.value) };
-              } else return item;
+              }
+
+              return item;
             })
           );
         };
@@ -32,7 +38,9 @@ const FamBBisPartFeesRender = () => {
             prev.map((item) => {
               if (item.id === el.id) {
                 return { ...item, isEdited: !el.isEdited, name: el.name === "" ? "Name the item" : el.name };
-              } else return item;
+              }
+
+              return item;
             })
           );
         };
@@ -54,11 +62,14 @@ const FamBBisPartFeesRender = () => {
                   placeholder="Fee"
                   onChange={onChangeName}
                   value={el.name}
-                  className="text-black py-1 px-2 rounded-md bg-zinc-400 placeholder:text-zinc-700 w-full"
+                  className="text-black py-1 px-2 rounded-md bg-gray-400 placeholder:text-zinc-700 w-full"
                 />
               </label>
-              <button onClick={onClickEdited} className="bg-slate-500 rounded-md w-8">
-                +
+              <button onClick={onClickEdited} className="bg-gray-400 rounded-md h-8 py-1 px-2 aspect-square">
+                <AddIcon fill="black" />
+              </button>
+              <button onClick={onClickDelete} className="bg-gray-400 rounded-md h-8 py-1 px-2 aspect-square">
+                <DeleteIcon fill="black" />
               </button>
             </article>
           );
@@ -69,22 +80,22 @@ const FamBBisPartFeesRender = () => {
               className="flex md:justify-between w-full md:flex-row flex-col justify-center items-center"
             >
               <h3>{el.name}</h3>
-              <div className="flex flex-row gap-2 ">
-                <label>
+              <div className="flex flex-row gap-2 md:w-auto w-full">
+                <label className="md:w-auto w-full">
                   <input
                     type="number"
                     placeholder="Fee"
                     onChange={onChangeFeeCost}
                     value={el.feeCost}
-                    className="text-black py-1 px-2 rounded-md bg-gradient-to-l from-slate-500 to-slate-400 placeholder:text-zinc-600"
+                    className="text-black py-1 px-2 rounded-md bg-gradient-to-l bg-gray-400 placeholder:text-zinc-600 md:w-auto w-full"
                   />
                 </label>
                 <div className=" h-full gap-2 flex">
-                  <button onClick={onClickDelete} className="bg-slate-500 rounded-md h-full w-8 py-1 px-2">
-                    Del
+                  <button onClick={onClickEdited} className="bg-gray-400 rounded-md h-full w-8 py-1 px-2 aspect-square">
+                    <EditIcon fill="black" />
                   </button>
-                  <button onClick={onClickEdited} className="bg-slate-500 rounded-md h-full w-8 py-1 px-2 ">
-                    Edit
+                  <button onClick={onClickDelete} className="bg-gray-400 rounded-md h-full w-8 py-1 px-2 aspect-square">
+                    <DeleteIcon fill="black" />
                   </button>
                 </div>
               </div>

@@ -3,7 +3,7 @@ import FamBBisPartIncome from "./01_FamilyIncome/FamBBisPartIncome";
 
 const FamBBisPartRender = () => {
   return (
-    <section className="px-8 py-6 mx-16 my-12 bg-gradient-to-br from-[#4d1d95cb] from-10% to-transparent rounded-3xl w-section h-section">
+    <section className="px-8 py-6 mx-16 my-12 bg-gradient-to-br bg-zinc-500 rounded-3xl w-section h-section hover:shadow-section duration-300">
       <h1 className="mb-4">Count your family budget</h1>
       <FamBBisPartIncome />
       <FamBBisPartFees />

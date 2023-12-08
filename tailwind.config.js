@@ -33,6 +33,9 @@ module.exports = {
       height: {
         section: "min(100%, 47.5rem)",
       },
+      boxShadow: {
+        section: "0 0 1.25rem 0.25rem #5f5f5f",
+      },
     },
   },
   plugins: [],

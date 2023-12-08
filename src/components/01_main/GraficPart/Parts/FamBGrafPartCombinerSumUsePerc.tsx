@@ -15,7 +15,7 @@ const FamBGrafPartCombinerSumUsePerc = ({ summarySalaryFunc, summaryFeeFunc }: F
         {percentCounting(summarySalaryFunc(partnersInfo), summaryFeeFunc(feeList))}
       </h3>
       <div
-        style={{ backgroundColor: "gray" }}
+        style={{ backgroundColor: "#adadad" }}
         className="absolute aspect-square h-1/2 rounded-full -left-6 translate-y-1/2"
       ></div>
     </article>

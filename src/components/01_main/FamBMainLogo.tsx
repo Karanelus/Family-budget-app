@@ -1,11 +1,8 @@
 const FamBMainLogo = () => {
-  const onClickRandomFrom1to10 = () => {
-    return console.log(Math.trunc(Math.random() * 10));
-  };
-
   return (
-    <section onClick={onClickRandomFrom1to10} className=" py-6 px-12 animate-logo absolute top-0 left-0">
+    <section className=" py-6 px-12 animate-logo absolute top-0 left-0 text-black flex flex-row">
       Family Budget
+      <img src={process.env.PUBLIC_URL + "/img/logo.png"} alt="" className="aspect-square h-6 ml-2" />
     </section>
   );
 };
