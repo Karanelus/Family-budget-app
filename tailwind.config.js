@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -8,6 +9,10 @@ module.exports = {
         logo: "logoAnimation 0.25s ease",
         fee: "fee 0.25s ease",
         sum: "sumAnimation 0.25s ease",
+      },
+      boxShadow: {
+        section: "0 0 1.25rem 0.25rem #71717a",
+        sectionDark: "0 0 1.25rem 0.25rem #27272a",
       },
       keyframes: {
         footerAnimation: {
@@ -31,10 +36,10 @@ module.exports = {
         section: "min(100%, 40rem)",
       },
       height: {
-        section: "min(100%, 47.5rem)",
+        section: "min(100%, 47.55rem)",
       },
-      boxShadow: {
-        section: "0 0 1.25rem 0.25rem #5f5f5f",
+      textColor: {
+        darkmode: "#999999",
       },
     },
   },

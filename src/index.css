@@ -6,9 +6,17 @@
 
 body {
   background: darkgray;
-  background-size: cover;
   color: lightgray;
   font-family: "Fira Sans", sans-serif;
+  transition-duration: 150ms;
+}
+
+* {
+  @apply duration-150;
+}
+
+.dark body {
+  background: #505050;
 }
 
 #root {

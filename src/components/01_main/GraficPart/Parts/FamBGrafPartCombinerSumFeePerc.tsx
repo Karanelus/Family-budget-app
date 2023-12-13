@@ -19,7 +19,7 @@ const FamBGrafPartCombinerSumFeePerc = ({ summarySalaryFunc }: FamBGrafPartCombi
               </h3>
               <div
                 style={{ backgroundColor: el.color }}
-                className="absolute aspect-square h-1/2 rounded-full -left-6 translate-y-1/2 border-slate-900"
+                className="absolute aspect-square h-1/2 rounded-full -left-6 translate-y-1/2 border-slate-900 dark:brightness-75"
               ></div>
             </article>
           );

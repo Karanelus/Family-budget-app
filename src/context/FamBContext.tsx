@@ -25,6 +25,9 @@ type FamBContextContProps = {
   feeList: feeListType[];
   feePercentCount: (feeCount: number, percentCount: number) => string;
   setFeeList: React.Dispatch<React.SetStateAction<feeListType[]>>;
+  htmlElement: DOMTokenList;
+  isDarkmode: boolean;
+  setIsDarkmode: React.Dispatch<React.SetStateAction<boolean>>;
   partnersInfo: partnersNameType;
   setPartnersInfo: React.Dispatch<React.SetStateAction<partnersNameType>>;
   percentCounting: (maxUnit: number, minUnit: number) => string;
@@ -62,6 +65,8 @@ const FamBContext = ({ children }: FamBContextProps) => {
     "#0000ff",
     "#00ff00",
   ];
+  const htmlElement = document.documentElement.classList;
+  const [isDarkmode, setIsDarkmode] = useLocalStorage<boolean>("DarkMode", false);
 
   return (
     <FamBContextContainer.Provider
@@ -70,6 +75,9 @@ const FamBContext = ({ children }: FamBContextProps) => {
         feeList,
         feePercentCount,
         setFeeList,
+        htmlElement,
+        isDarkmode,
+        setIsDarkmode,
         partnersInfo,
         setPartnersInfo,
         percentCounting,

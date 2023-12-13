@@ -1,10 +1,10 @@
 import { useFamBContextContainer } from "../../../../../context/FamBContext";
-import AddIcon from "../../../../../svg/AddIcon";
+import ConfirmIcon from "../../../../../svg/ConfirmIcon";
 import DeleteIcon from "../../../../../svg/DeleteIcon";
 import EditIcon from "../../../../../svg/EditIcon";
 
 const FamBBisPartFeesRender = () => {
-  const { feeList, setFeeList } = useFamBContextContainer();
+  const { feeList, setFeeList, isDarkmode } = useFamBContextContainer();
 
   return (
     <>
@@ -62,14 +62,20 @@ const FamBBisPartFeesRender = () => {
                   placeholder="Fee"
                   onChange={onChangeName}
                   value={el.name}
-                  className="text-black py-1 px-2 rounded-md bg-gray-400 placeholder:text-zinc-700 w-full"
+                  className="text-black dark:text-darkmode py-1 px-2 rounded-md bg-gray-400 dark:bg-gray-600 placeholder:text-zinc-700 w-full"
                 />
               </label>
-              <button onClick={onClickEdited} className="bg-gray-400 rounded-md h-8 py-1 px-2 aspect-square">
-                <AddIcon fill="black" />
+              <button
+                onClick={onClickEdited}
+                className="bg-gray-400 dark:bg-gray-600 rounded-md h-8 py-1 px-2 aspect-square"
+              >
+                <ConfirmIcon fill={isDarkmode ? "#999999" : "black"} />
               </button>
-              <button onClick={onClickDelete} className="bg-gray-400 rounded-md h-8 py-1 px-2 aspect-square">
-                <DeleteIcon fill="black" />
+              <button
+                onClick={onClickDelete}
+                className="bg-gray-400 dark:bg-gray-600 rounded-md h-8 py-1 px-2 aspect-square"
+              >
+                <DeleteIcon fill={isDarkmode ? "#999999" : "black"} />
               </button>
             </article>
           );
@@ -87,15 +93,21 @@ const FamBBisPartFeesRender = () => {
                     placeholder="Fee"
                     onChange={onChangeFeeCost}
                     value={el.feeCost}
-                    className="text-black py-1 px-2 rounded-md bg-gradient-to-l bg-gray-400 placeholder:text-zinc-600 md:w-auto w-full"
+                    className="text-black dark:text-darkmode py-1 px-2 rounded-md bg-gradient-to-l bg-gray-400 dark:bg-gray-600 placeholder:text-zinc-600 md:w-auto w-full"
                   />
                 </label>
                 <div className=" h-full gap-2 flex">
-                  <button onClick={onClickEdited} className="bg-gray-400 rounded-md h-full w-8 py-1 px-2 aspect-square">
-                    <EditIcon fill="black" />
+                  <button
+                    onClick={onClickEdited}
+                    className="bg-gray-400 dark:bg-gray-600 rounded-md h-full w-8 py-1 px-2 aspect-square"
+                  >
+                    <EditIcon fill={isDarkmode ? "#999999" : "black"} />
                   </button>
-                  <button onClick={onClickDelete} className="bg-gray-400 rounded-md h-full w-8 py-1 px-2 aspect-square">
-                    <DeleteIcon fill="black" />
+                  <button
+                    onClick={onClickDelete}
+                    className="bg-gray-400 dark:bg-gray-600 rounded-md h-full w-8 py-1 px-2 aspect-square"
+                  >
+                    <DeleteIcon fill={isDarkmode ? "#999999" : "black"} />
                   </button>
                 </div>
               </div>

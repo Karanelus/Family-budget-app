@@ -8,7 +8,7 @@ type isEditingType = {
 };
 
 const FamBBisPartIncome = () => {
-  const { partnersInfo, setPartnersInfo } = useFamBContextContainer();
+  const { isDarkmode, partnersInfo, setPartnersInfo } = useFamBContextContainer();
   const [isEditing, setIsEditing] = useLocalStorage<isEditingType>("nameEditing", {
     edited_1: false,
     edited_2: false,
@@ -49,14 +49,14 @@ const FamBBisPartIncome = () => {
               value={partnersInfo.partner_1}
               onChange={onChageEditedName}
               data-clicked={1}
-              className="bg-slate-400 rounded-md px-1"
+              className="bg-gray-400 dark:bg-gray-600 rounded-md px-1 dark:text-darkmode"
             />
             <button
               onClick={onClickEditName}
               data-clicked={1}
-              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 rounded-md"
+              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 dark:bg-gray-600 rounded-md"
             >
-              <EditIcon fill="black" />
+              <EditIcon fill={isDarkmode ? "#999999" : "black"} />
             </button>
           </label>
         ) : (
@@ -65,9 +65,9 @@ const FamBBisPartIncome = () => {
             <button
               onClick={onClickEditName}
               data-clicked={1}
-              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 rounded-md"
+              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 dark:bg-gray-600 rounded-md"
             >
-              <EditIcon fill="black" />
+              <EditIcon fill={isDarkmode ? "#999999" : "black"} />
             </button>
           </div>
         )}
@@ -78,7 +78,7 @@ const FamBBisPartIncome = () => {
             value={partnersInfo.salary_1}
             onChange={onChangeSalary}
             data-clicked={1}
-            className="text-black py-1 px-2 rounded-md bg-gradient-to-r bg-gray-400 h-8"
+            className="text-black dark:text-darkmode py-1 px-2 rounded-md bg-gradient-to-r bg-gray-400 dark:bg-gray-600 h-8"
           />
         </label>
       </div>
@@ -90,14 +90,14 @@ const FamBBisPartIncome = () => {
               value={partnersInfo.partner_2}
               onChange={onChageEditedName}
               data-clicked={2}
-              className="bg-slate-400 rounded-md px-1"
+              className="bg-gray-400 dark:bg-gray-600 rounded-md px-1 dark:text-darkmode"
             />
             <button
               onClick={onClickEditName}
               data-clicked={2}
-              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 rounded-md"
+              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 dark:bg-gray-600 rounded-md"
             >
-              <EditIcon fill="black" />
+              <EditIcon fill={isDarkmode ? "#999999" : "black"} />
             </button>
           </label>
         ) : (
@@ -106,9 +106,9 @@ const FamBBisPartIncome = () => {
             <button
               onClick={onClickEditName}
               data-clicked={2}
-              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 rounded-md"
+              className="absolute top-0 -right-8 md:h-6 h-7 p-1 aspect-square bg-gray-400 dark:bg-gray-600 rounded-md"
             >
-              <EditIcon fill="black" />
+              <EditIcon fill={isDarkmode ? "#999999" : "black"} />
             </button>
           </div>
         )}
@@ -119,7 +119,7 @@ const FamBBisPartIncome = () => {
             value={partnersInfo.salary_2}
             onChange={onChangeSalary}
             data-clicked={2}
-            className="text-black py-1 px-2 rounded-md bg-gradient-to-r bg-gray-400 h-8"
+            className="text-black dark:text-darkmode py-1 px-2 rounded-md bg-gradient-to-r bg-gray-400 dark:bg-gray-600 h-8"
           />
         </label>
       </div>

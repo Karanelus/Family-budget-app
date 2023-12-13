@@ -1,22 +1,40 @@
 import { useFamBContextContainer } from "../../../../../context/FamBContext";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import FamBBisPartFeesRender from "./FamBBisPartFeesRender";
 import { v4 as uuidv4 } from "uuid";
 import AddIcon from "../../../../../svg/AddIcon";
+import useLocalStorage from "../../../../../hooks/useLocalStorage";
 
 const FamBBisPartFees = () => {
-  const { diagramColorPalette, setFeeList } = useFamBContextContainer();
-  const [colorNoRepeat, setColorNoRepeat] = useState<string[]>([]);
+  const { diagramColorPalette, setFeeList, isDarkmode } = useFamBContextContainer();
+  const [colorNoRepeat, setColorNoRepeat] = useLocalStorage<string[]>("colorPalette", []);
 
   const randomColor = (): string => {
-    let randomColor = diagramColorPalette[Math.trunc(Math.random() * 9)];
-    setColorNoRepeat((prev) => [...prev, randomColor]);
-
     if (colorNoRepeat.length >= 3) {
       setColorNoRepeat((prev) => prev.slice(1));
     }
 
-    return randomColor;
+    const randomColor = diagramColorPalette[Math.trunc(Math.random() * (diagramColorPalette.length - 1))];
+
+    if (colorNoRepeat.some((el) => el === randomColor)) {
+      let newRandomColorArray = [...diagramColorPalette];
+      colorNoRepeat.forEach((color) =>
+        newRandomColorArray.filter((elem) => {
+          return elem !== color;
+        })
+      );
+
+      const newRandomColor = newRandomColorArray[Math.trunc(Math.random() * (newRandomColorArray.length - 1))];
+      console.log(newRandomColorArray);
+
+      setColorNoRepeat((prev) => [...prev, newRandomColor]);
+
+      return newRandomColor;
+    } else {
+      setColorNoRepeat((prev) => [...prev, randomColor]);
+
+      return randomColor;
+    }
   };
 
   useEffect(() => {
@@ -35,9 +53,9 @@ const FamBBisPartFees = () => {
       </section>
       <button
         onClick={onClickAddFee}
-        className="py-1 px-2 bg-gray-400 rounded-md grid place-items-center h-8 aspect-square"
+        className="py-1 px-2 bg-gray-400 dark:bg-gray-600 rounded-md grid place-items-center h-8 aspect-square "
       >
-        <AddIcon fill="black" />
+        <AddIcon fill={isDarkmode ? "#999999" : "black"} />
       </button>
     </div>
   );

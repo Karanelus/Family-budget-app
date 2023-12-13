@@ -39,7 +39,7 @@ const FamBGarfPartDiagramm = () => {
   };
 
   return (
-    <section className="relative aspect-square w-1/2 mx-auto mb-8">
+    <section className="relative aspect-square w-1/2 mx-auto mb-8 dark:brightness-75">
       <article style={componentStyle} className="h-full rounded-full"></article>
     </section>
   );
