@@ -1,5 +1,6 @@
 import { useContext, ReactNode, createContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
+import language from "../language/language.json";
 
 type FamBContextProps = {
   children: ReactNode;
@@ -25,6 +26,9 @@ type FamBContextContProps = {
   feeList: feeListType[];
   feePercentCount: (feeCount: number, percentCount: number) => string;
   setFeeList: React.Dispatch<React.SetStateAction<feeListType[]>>;
+  languages: string[];
+  languagesChoise: "ENG" | "POL" | "RUS";
+  setLanguagesChoise: React.Dispatch<React.SetStateAction<"ENG" | "POL" | "RUS">>;
   htmlElement: DOMTokenList;
   isDarkmode: boolean;
   setIsDarkmode: React.Dispatch<React.SetStateAction<boolean>>;
@@ -67,6 +71,8 @@ const FamBContext = ({ children }: FamBContextProps) => {
   ];
   const htmlElement = document.documentElement.classList;
   const [isDarkmode, setIsDarkmode] = useLocalStorage<boolean>("DarkMode", false);
+  const languages: string[] = Object.keys(language);
+  const [languagesChoise, setLanguagesChoise] = useLocalStorage<"ENG" | "POL" | "RUS">("language", "ENG");
 
   return (
     <FamBContextContainer.Provider
@@ -75,6 +81,9 @@ const FamBContext = ({ children }: FamBContextProps) => {
         feeList,
         feePercentCount,
         setFeeList,
+        languages,
+        languagesChoise,
+        setLanguagesChoise,
         htmlElement,
         isDarkmode,
         setIsDarkmode,

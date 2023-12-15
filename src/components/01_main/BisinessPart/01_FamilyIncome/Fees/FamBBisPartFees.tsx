@@ -4,9 +4,10 @@ import FamBBisPartFeesRender from "./FamBBisPartFeesRender";
 import { v4 as uuidv4 } from "uuid";
 import AddIcon from "../../../../../svg/AddIcon";
 import useLocalStorage from "../../../../../hooks/useLocalStorage";
+import language from "../../../../../language/language.json";
 
 const FamBBisPartFees = () => {
-  const { diagramColorPalette, setFeeList, isDarkmode } = useFamBContextContainer();
+  const { diagramColorPalette, setFeeList, languagesChoise, isDarkmode } = useFamBContextContainer();
   const [colorNoRepeat, setColorNoRepeat] = useLocalStorage<string[]>("colorPalette", []);
 
   const randomColor = (): string => {
@@ -47,7 +48,7 @@ const FamBBisPartFees = () => {
 
   return (
     <div className="grid place-items-center w-full gap-2">
-      <p>Fixed fees</p>
+      <p>{language[languagesChoise]["title_1--fixedFee"]}</p>
       <section className="w-full flex flex-col gap-2 ">
         <FamBBisPartFeesRender />
       </section>

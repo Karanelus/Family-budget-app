@@ -1,4 +1,5 @@
 import FamBDarkmodeOption from "./Options_Components/FamBDarkmodeOption";
+import FamBLanguages from "./Options_Components/FamBLanguages";
 
 const FamBOptionsRender = () => {
   return (
@@ -6,9 +7,7 @@ const FamBOptionsRender = () => {
       <div className="w-fill dark:text-black cursor-not-allowed" title="Coming soon">
         PLN
       </div>
-      <div className="w-fill dark:text-black cursor-not-allowed" title="Coming soon">
-        ENG
-      </div>
+      <FamBLanguages />
       <FamBDarkmodeOption />
     </section>
   );

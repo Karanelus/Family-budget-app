@@ -1,4 +1,5 @@
 import { feeListType, partnersNameType, useFamBContextContainer } from "../../../../context/FamBContext";
+import language from "../../../../language/language.json";
 
 type FamBGrafPartCombinerSumUseType = {
   summarySalaryFunc: (partnerObject: partnersNameType) => number;
@@ -6,11 +7,11 @@ type FamBGrafPartCombinerSumUseType = {
 };
 
 const FamBGrafPartCombinerSumUsePerc = ({ summarySalaryFunc, summaryFeeFunc }: FamBGrafPartCombinerSumUseType) => {
-  const { feeList, partnersInfo, percentCounting } = useFamBContextContainer();
+  const { feeList, languagesChoise, partnersInfo, percentCounting } = useFamBContextContainer();
 
   return (
     <article className=" flex flex-row justify-between border-b-2 dark:border-black relative">
-      <h3>In percent</h3>
+      <h3>{language[languagesChoise]["title_2--perc"]}</h3>
       <h3 key={percentCounting(summarySalaryFunc(partnersInfo), summaryFeeFunc(feeList))} className="animate-sum">
         {percentCounting(summarySalaryFunc(partnersInfo), summaryFeeFunc(feeList))}
       </h3>
