@@ -8,7 +8,7 @@ const FamBRender = () => {
     <>
       <FamBMainLogo />
       <FamBOptionsRender />
-      <main className="grid place-items-center md:grid-cols-2 md:grid-rows-1 grid-rows-2 grid-cols-1 relative gap-8 mt-16 mb-10">
+      <main className="relative mb-10 mt-16 grid grid-cols-1 grid-rows-2 place-items-center gap-8 md:grid-cols-2 md:grid-rows-1">
         <FamBMainRender />
       </main>
       <FamBFooter />

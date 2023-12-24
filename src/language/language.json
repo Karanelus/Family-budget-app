@@ -17,13 +17,13 @@
     "title_2--forFamUse": "Łącznie zostaje",
     "title_2--perc": "Procent wydatków"
   },
-  "RUS": {
-    "title_1": "Посчитай семейный бюджет",
-    "title_1--fixedFee": "Стабильные траты",
-    "title_2": "Статистика",
-    "title_2--sumSalary": "Общая зарплата",
-    "title_2--sumFee": "Общие расходы",
-    "title_2--forFamUse": "Остаток",
-    "title_2--perc": "Процент расходов"
+  "BLR": {
+    "title_1": "Падліч радзінны бюджэт",
+    "title_1--fixedFee": "Сталыя выдаткі",
+    "title_2": "Статыстыка",
+    "title_2--sumSalary": "Агульныя заробкі",
+    "title_2--sumFee": "Агульныя выдаткі",
+    "title_2--forFamUse": "Рэшта",
+    "title_2--perc": "Адсотак выдаткаў"
   }
 }

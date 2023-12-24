@@ -1,11 +1,21 @@
+import { useFamBContextContainer } from "../context/FamBContext";
+
 const FamBMainLogo = () => {
+  const { setIsDarkmode } = useFamBContextContainer();
+  const onClickFastcheck = () => {
+    setIsDarkmode(false);
+  };
+
   return (
-    <section className="py-7 px-12 animate-logo absolute top-0 left-0 dark:text-black flex flex-row">
+    <section
+      onClick={onClickFastcheck}
+      className="absolute left-0 top-0 flex animate-logo flex-row px-12 py-7 dark:text-black"
+    >
       Family Budget
       <img
         src={process.env.PUBLIC_URL + "/img/logo.png"}
         alt=""
-        className="aspect-square h-6 ml-2 dark:brightness-75"
+        className="ml-2 aspect-square h-6 dark:brightness-75"
       />
     </section>
   );

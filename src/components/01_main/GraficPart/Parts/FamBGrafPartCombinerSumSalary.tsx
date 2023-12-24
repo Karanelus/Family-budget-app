@@ -1,11 +1,16 @@
-import { partnersNameType, useFamBContextContainer } from "../../../../context/FamBContext";
+import {
+  partnersNameType,
+  useFamBContextContainer,
+} from "../../../../context/FamBContext";
 import language from "../../../../language/language.json";
 
 type FamBGrafPartCombinerSumSalaryType = {
   summarySalaryFunc: (partnerObject: partnersNameType) => number;
 };
 
-const FamBGrafPartCombinerSumSalary = ({ summarySalaryFunc }: FamBGrafPartCombinerSumSalaryType) => {
+const FamBGrafPartCombinerSumSalary = ({
+  summarySalaryFunc,
+}: FamBGrafPartCombinerSumSalaryType) => {
   const { languagesChoise, partnersInfo } = useFamBContextContainer();
 
   return (

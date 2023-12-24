@@ -7,7 +7,7 @@ const FamBGrafPartRender = () => {
   const { languagesChoise } = useFamBContextContainer();
 
   return (
-    <section className="px-8 py-6 mx-16 my-12 bg-gradient-to-br bg-zinc-500 dark:bg-zinc-700 dark:text-black rounded-3xl w-section h-section flex flex-col content-center hover:shadow-section dark:hover:shadow-sectionDark duration-300">
+    <section className="mx-16 my-12 flex h-section w-section flex-col content-center rounded-3xl bg-zinc-500 bg-gradient-to-br px-8 py-6 duration-300 hover:shadow-section dark:bg-zinc-700 dark:text-black dark:hover:shadow-sectionDark">
       <h2 className="mb-4">{language[languagesChoise].title_2}</h2>
       <FamBGarfPartDiagramm />
       <FamBGrafPartCombinerRender />

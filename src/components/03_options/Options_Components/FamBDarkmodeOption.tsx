@@ -6,7 +6,7 @@ const FamBDarkmodeOption = () => {
   const { htmlElement, isDarkmode, setIsDarkmode } = useFamBContextContainer();
 
   const onClickChangeColorMode = () => {
-    htmlElement.toggle("dark");
+    isDarkmode ? htmlElement.add("dark") : htmlElement.remove("dark");
     setIsDarkmode((prev) => !prev);
   };
 

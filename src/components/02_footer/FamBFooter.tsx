@@ -8,14 +8,14 @@ const FamBFooter = () => {
   const date = new Date();
 
   return (
-    <footer className="bg-zinc-500 dark:bg-zinc-700 dark:text-black py-3 h-fit flex justify-center items-center animate-footer hover:shadow-section dark:hover:shadow-sectionDark gap-6">
+    <footer className="flex h-fit animate-footer items-center justify-center gap-6 bg-zinc-500 py-3 hover:shadow-section dark:bg-zinc-700 dark:text-black dark:hover:shadow-sectionDark">
       <a
         href="https://www.linkedin.com/in/karanelus/"
         target="_blank"
         rel="noreferrer"
         className="hover:brightness-75 dark:hover:contrast-75"
       >
-        <LinkedInIcon fill={isDarkmode ? "" : "lightgray"} />
+        <LinkedInIcon fill={isDarkmode ? "black" : "#d3d3d3"} />
       </a>
       <p>©{date.getFullYear()}, Rusłan Karaniewski</p>
       <a
@@ -24,7 +24,7 @@ const FamBFooter = () => {
         rel="noreferrer"
         className="hover:brightness-75 dark:hover:contrast-75"
       >
-        <GitHubIcon fill={isDarkmode ? "" : "lightgray"} />
+        <GitHubIcon fill={isDarkmode ? "black" : "#d3d3d3"} />
       </a>
     </footer>
   );

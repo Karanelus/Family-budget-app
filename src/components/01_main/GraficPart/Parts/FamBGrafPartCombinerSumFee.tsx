@@ -1,11 +1,16 @@
-import { feeListType, useFamBContextContainer } from "../../../../context/FamBContext";
+import {
+  feeListType,
+  useFamBContextContainer,
+} from "../../../../context/FamBContext";
 import language from "../../../../language/language.json";
 
 type FamBGrafPartCombinerSumSalaryType = {
   summaryFeeFunc: (feeArray: feeListType[]) => number;
 };
 
-const FamBGrafPartCombinerSumFee = ({ summaryFeeFunc }: FamBGrafPartCombinerSumSalaryType) => {
+const FamBGrafPartCombinerSumFee = ({
+  summaryFeeFunc,
+}: FamBGrafPartCombinerSumSalaryType) => {
   const { feeList, languagesChoise } = useFamBContextContainer();
 
   return (
