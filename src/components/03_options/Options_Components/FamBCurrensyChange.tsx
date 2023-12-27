@@ -14,7 +14,7 @@ const FamBCurrensyChange = () => {
   );
 
   return (
-    <ul className="group w-7 cursor-default dark:text-black">
+    <ul className="group/currensy w-7 cursor-default dark:text-black">
       <li>{currensyState.currensyCurrent}</li>
       {currencyAvailableList.map((el, index) => {
         if (el !== currensyState.currensyCurrent) {
@@ -52,7 +52,7 @@ const FamBCurrensyChange = () => {
               key={el}
               onClick={onClickCurrensyChange}
               style={{ transform: `translateY(calc(100%*${index}))` }}
-              className="absolute z-20 cursor-pointer opacity-0 group-hover:opacity-100"
+              className="absolute z-20 cursor-pointer opacity-0 group-hover/currensy:opacity-100"
             >
               {el}
             </li>

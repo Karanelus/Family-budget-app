@@ -27,6 +27,7 @@ const FamBBisPartIncome = () => {
     const clickedNum = e.currentTarget.dataset.clicked!;
     const firstPersonRef = firstPerson.current!;
     const secondPersonRef = secondPerson.current!;
+
     if (clickedNum === "1") {
       firstPersonRef.classList.toggle("before:w-full");
       firstPersonRef.classList.toggle("before:w-0");
@@ -64,14 +65,28 @@ const FamBBisPartIncome = () => {
 
   const onChangeSalary = (e: React.ChangeEvent<HTMLInputElement>) => {
     const changeNum = e.target.dataset.clicked!;
+
+    const numberTypeProver = (): number => {
+      if (e.target.value.charAt(0) === "0" && e.target.value.length >= 1) {
+        const numero = e.target.value.slice(1);
+        return Number(numero);
+      } else if (e.target.value.charAt(0) !== "0" && e.target.value !== "") {
+        return parseInt(e.target.value, 10);
+      }
+
+      return 0;
+    };
+
+    numberTypeProver();
+
     changeNum === "1"
       ? setPartnersInfo((prev) => ({
           ...prev,
-          salary_1: e.target.value === "" ? 0 : parseInt(e.target.value),
+          salary_1: e.target.value.length === 0 ? 0 : parseInt(e.target.value),
         }))
       : setPartnersInfo((prev) => ({
           ...prev,
-          salary_2: e.target.value === "" ? 0 : parseInt(e.target.value),
+          salary_2: numberTypeProver(),
         }));
   };
 

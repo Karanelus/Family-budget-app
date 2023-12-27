@@ -6,12 +6,15 @@ const FamBDarkmodeOption = () => {
   const { htmlElement, isDarkmode, setIsDarkmode } = useFamBContextContainer();
 
   const onClickChangeColorMode = () => {
-    isDarkmode ? htmlElement.add("dark") : htmlElement.remove("dark");
+    htmlElement.toggle("dark");
     setIsDarkmode((prev) => !prev);
   };
 
   return (
-    <div onClick={onClickChangeColorMode} className=" aspect-square w-6 cursor-pointer">
+    <div
+      onClick={onClickChangeColorMode}
+      className=" aspect-square w-6 cursor-pointer"
+    >
       {isDarkmode ? <MoonIcon fill="black" /> : <SunIcon fill="white" />}
     </div>
   );

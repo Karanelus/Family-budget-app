@@ -27,7 +27,7 @@ export type partnersNameType = {
   salary_2: number;
 };
 
-type adsd = {
+type currensyListType = {
   [key: string]: number;
 };
 
@@ -39,7 +39,7 @@ type currensyStateType = {
 };
 
 type FamBContextContProps = {
-  currensyList: adsd;
+  currensyList: currensyListType;
   currensyState: currensyStateType;
   setCurrensyState: React.Dispatch<React.SetStateAction<currensyStateType>>;
   diagramColorPalette: string[];
@@ -114,7 +114,7 @@ const FamBContext = ({ children }: FamBContextProps) => {
     },
   );
 
-  const [currensyList, setCurrensyList] = useState<adsd>({});
+  const [currensyList, setCurrensyList] = useState<currensyListType>({});
 
   useEffect(() => {
     const getCurrensy = async () => {
@@ -126,6 +126,7 @@ const FamBContext = ({ children }: FamBContextProps) => {
       setCurrensyList(data.rates);
     };
 
+    setCurrensyState((prev) => ({ ...prev, currensyCourse: 1 }));
     getCurrensy();
 
     localStorage.DarkMode === "true"
