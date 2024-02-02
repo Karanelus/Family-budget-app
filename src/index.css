@@ -27,7 +27,7 @@ body {
 
 h1,
 h2 {
-  @apply text-4xl text-center;
+  @apply mb-4 text-center text-4xl;
 }
 
 h3 {

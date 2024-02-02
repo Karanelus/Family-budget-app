@@ -1,8 +1,8 @@
-type ConfirmIconType = {
+type Props = {
   fill: string;
 };
 
-const ConfirmIcon = ({ fill = "black" }: ConfirmIconType) => {
+const ConfirmIcon = ({ fill = `black` }: Props) => {
   return (
     <svg
       data-name="Layer 1"

@@ -1,8 +1,8 @@
-type GitHubIconType = {
+type Props = {
   fill: string;
 };
 
-const GitHubIcon = ({ fill = "black" }: GitHubIconType) => {
+const GitHubIcon = ({ fill = "black" }: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,11 +1,11 @@
-import FamBRender from "./components/FamBRender";
-import FamBContext from "./context/FamBContext";
+import Render from "./components/Render";
+import AppContext from "./context/AppContext";
 
 const App = () => {
   return (
-    <FamBContext>
-      <FamBRender />
-    </FamBContext>
+    <AppContext>
+      <Render />
+    </AppContext>
   );
 };
 
