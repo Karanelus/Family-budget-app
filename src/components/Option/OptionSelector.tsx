@@ -4,7 +4,7 @@ type Props = {
   selectorText: string;
 };
 
-const PageOptionSelector = ({
+const OptionSelector = ({
   onClickFunction,
   spaceIndex,
   selectorText,
@@ -20,4 +20,4 @@ const PageOptionSelector = ({
   );
 };
 
-export default PageOptionSelector;
+export default OptionSelector;

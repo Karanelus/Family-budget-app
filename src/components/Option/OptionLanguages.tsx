@@ -1,8 +1,8 @@
 import { useAppContextContainer } from "../../context/AppContext";
-import PageOptionSelector from "./PageOptionSelector";
-import styles from "./PageOption.styles";
+import OptionSelector from "./OptionSelector";
+import styles from "./Option.styles";
 
-const PageOptionLanguages = () => {
+const OptionLanguages = () => {
   const { languages, languagesChoise, setLanguagesChoise } =
     useAppContextContainer();
 
@@ -19,7 +19,7 @@ const PageOptionLanguages = () => {
         };
 
         return (
-          <PageOptionSelector
+          <OptionSelector
             key={index}
             onClickFunction={onClickChangeLanguage}
             spaceIndex={index}
@@ -31,4 +31,4 @@ const PageOptionLanguages = () => {
   );
 };
 
-export default PageOptionLanguages;
+export default OptionLanguages;

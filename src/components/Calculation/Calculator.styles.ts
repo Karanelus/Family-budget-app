@@ -19,6 +19,25 @@ const styles = {
         "absolute -right-8 top-0 aspect-square h-7 rounded-md bg-gray-400 p-1 dark:bg-gray-600 md:h-6",
     },
   },
+  feeSection: {
+    container: "grid w-full place-items-center gap-2",
+    render: "flex w-full flex-col gap-2",
+    default: {
+      constainer:
+        "flex w-full flex-col items-center justify-center md:flex-row md:justify-between",
+      functionPart: "flex w-full flex-row gap-2 md:w-auto",
+      input:
+        "w-full rounded-md bg-gray-400 bg-gradient-to-l px-2 py-1 text-black placeholder:text-zinc-600 dark:bg-gray-600 dark:text-darkmode md:w-auto",
+      buttonContainer: "flex h-full gap-2",
+    },
+    edited: {
+      constainer: "flex w-full animate-fee gap-2",
+      input:
+        "w-full rounded-md bg-gray-400 px-2 py-1 text-black placeholder:text-zinc-700 dark:bg-gray-600 dark:text-darkmode",
+    },
+  },
+  button:
+    "aspect-square h-full w-8 rounded-md bg-gray-400 px-2 py-1 dark:bg-gray-600",
 };
 
 export default styles;

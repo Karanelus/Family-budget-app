@@ -1,9 +1,9 @@
 import { useAppContextContainer } from "../../context/AppContext";
 import MoonIcon from "../../svg/MoonIcon";
 import SunIcon from "../../svg/SunIcon";
-import styles from "./PageOption.styles";
+import styles from "./Option.styles";
 
-const PageOptionDarkmode = () => {
+const OptionDarkmode = () => {
   const { htmlElement, isDarkmode, setIsDarkmode } = useAppContextContainer();
 
   const onClickChangeColorMode = () => {
@@ -27,4 +27,4 @@ const PageOptionDarkmode = () => {
   );
 };
 
-export default PageOptionDarkmode;
+export default OptionDarkmode;

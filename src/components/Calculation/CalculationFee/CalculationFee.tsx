@@ -1,12 +1,14 @@
-import { useAppContextContainer } from "../../../../context/AppContext";
-import FamBBisPartFeesRender from "./FamBBisPartFeesRender";
+import { useAppContextContainer } from "../../../context/AppContext";
 import { v4 as uuidv4 } from "uuid";
-import AddIcon from "../../../../svg/AddIcon";
-import useLocalStorage from "../../../../hooks/useLocalStorage.hook";
-import language from "../../../../language/language.json";
+import AddIcon from "../../../svg/AddIcon";
+import styles from "../Calculator.styles";
+import CalculationFeeUnitButton from "./CalculationFeeUnitButton";
+import useLocalStorage from "../../../hooks/useLocalStorage.hook";
+import language from "../../../language/language.json";
+import CalculationFeeUnits from "./CalculationFeeUnits";
 
-const FamBBisPartFees = () => {
-  const { diagramColorPalette, setFeeList, languagesChoise, isDarkmode } =
+const CalculationFee = () => {
+  const { diagramColorPalette, setFeeList, isDarkmode, languagesChoise } =
     useAppContextContainer();
   const [colorNoRepeat, setColorNoRepeat] = useLocalStorage<string[]>(
     "colorPalette",
@@ -35,15 +37,12 @@ const FamBBisPartFees = () => {
         newRandomColorArray[
           Math.trunc(Math.random() * (newRandomColorArray.length - 1))
         ];
-
       setColorNoRepeat((prev) => [...prev, newRandomColor]);
-
       return newRandomColor;
-    } else {
-      setColorNoRepeat((prev) => [...prev, randomColor]);
-
-      return randomColor;
     }
+
+    setColorNoRepeat((prev) => [...prev, randomColor]);
+    return randomColor;
   };
 
   const onClickAddFee = () => {
@@ -60,19 +59,15 @@ const FamBBisPartFees = () => {
   };
 
   return (
-    <div className="grid w-full place-items-center gap-2">
+    <article className={styles.feeSection.container}>
       <p>{language[languagesChoise]["title_1--fixedFee"]}</p>
-      <section className="flex w-full flex-col gap-2 ">
-        <FamBBisPartFeesRender />
-      </section>
-      <button
-        onClick={onClickAddFee}
-        className="grid aspect-square h-8 place-items-center rounded-md bg-gray-400 px-2 py-1 dark:bg-gray-600"
-      >
-        <AddIcon fill={isDarkmode ? "#999999" : "black"} />
-      </button>
-    </div>
+      <CalculationFeeUnits />
+      <CalculationFeeUnitButton
+        onClickFunction={onClickAddFee}
+        buttonSVG={<AddIcon fill={isDarkmode ? "#999999" : "black"} />}
+      />
+    </article>
   );
 };
 
-export default FamBBisPartFees;
+export default CalculationFee;

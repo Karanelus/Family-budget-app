@@ -1,6 +1,7 @@
-import { useAppContextContainer } from "../../../context/AppContext";
+import { useAppContextContainer } from "../../context/AppContext";
+import styles from "./Statistics.styles";
 
-const FamBGarfPartDiagramm = () => {
+const StatisticsDiagram = () => {
   const { countPercent, feeList, partnersInfo } = useAppContextContainer();
 
   const summarySalary = () => {
@@ -21,18 +22,18 @@ const FamBGarfPartDiagramm = () => {
     return sum;
   };
 
-  const xxxxxxx = countPercent(summarySalary(), summaryFee(), true);
+  const countPosition = countPercent(summarySalary(), summaryFee(), true);
 
   const statusReport = (): string => {
-    let rayPlasing = xxxxxxx;
+    let rayPlasing = countPosition;
     let statusReportText = `conic-gradient(#adadad ${rayPlasing}%`;
 
     if (feeList.length === 0) {
       statusReportText += `, #0000 0`;
     } else {
       feeList.forEach((el) => {
-        const yyyyyyy = countPercent(summarySalary(), el.feeCost);
-        let nextRay = rayPlasing + yyyyyyy;
+        const nextRayPlasing = countPercent(summarySalary(), el.feeCost);
+        let nextRay = rayPlasing + nextRayPlasing;
 
         statusReportText += `,${el.color} ${rayPlasing}% ${nextRay}%`;
         rayPlasing = nextRay;
@@ -49,10 +50,10 @@ const FamBGarfPartDiagramm = () => {
   };
 
   return (
-    <section className="relative mx-auto mb-8 aspect-square w-1/2 dark:brightness-75">
+    <section className={styles.diagram}>
       <article style={componentStyle} className="h-full rounded-full"></article>
     </section>
   );
 };
 
-export default FamBGarfPartDiagramm;
+export default StatisticsDiagram;

@@ -27,7 +27,6 @@ const CalculationIncomePerson = () => {
         classChoosen.classList.toggle("before:w-0");
         setPartnersInfo((partner) =>
           partner.map((element) => {
-            console.log(element.id === clickedNum);
             if (element.id === clickedNum) {
               return {
                 ...element,
@@ -45,7 +44,6 @@ const CalculationIncomePerson = () => {
 
   const onChangeSalary = (e: React.ChangeEvent<HTMLInputElement>) => {
     const clickedNum = e.target.dataset.clicked!;
-    console.log(clickedNum);
 
     setPartnersInfo((partner) =>
       partner.map((element) => {

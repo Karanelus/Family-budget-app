@@ -1,8 +1,8 @@
 import { useAppContextContainer } from "../../context/AppContext";
-import PageOptionSelector from "./PageOptionSelector";
-import styles from "./PageOption.styles";
+import OptionSelector from "./OptionSelector";
+import styles from "./Option.styles";
 
-const PageOptionCurrensy = () => {
+const OptionCurrensy = () => {
   const {
     currensyList,
     currensyState,
@@ -51,7 +51,7 @@ const PageOptionCurrensy = () => {
           };
 
           return (
-            <PageOptionSelector
+            <OptionSelector
               key={index}
               onClickFunction={onClickCurrensyChange}
               spaceIndex={index}
@@ -64,4 +64,4 @@ const PageOptionCurrensy = () => {
   );
 };
 
-export default PageOptionCurrensy;
+export default OptionCurrensy;
