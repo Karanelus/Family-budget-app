@@ -70,6 +70,7 @@ export const useAppContextContainer = () => {
 
 const AppContext = ({ children }: AppContextProps) => {
   const [feeList, setFeeList] = useLocalStorage<feeListType[]>("feeList", []);
+
   const [partnersInfo, setPartnersInfo] = useLocalStorage<partnersNameType[]>(
     "nameList",
     [
@@ -90,12 +91,16 @@ const AppContext = ({ children }: AppContextProps) => {
     "#0000ff",
     "#00ff00",
   ];
+
   const htmlElement = document.documentElement.classList;
+
   const [isDarkmode, setIsDarkmode] = useLocalStorage<boolean>(
     "DarkMode",
     false,
   );
+
   const languages: string[] = Object.keys(language);
+
   const [languagesChoise, setLanguagesChoise] = useLocalStorage<
     "ENG" | "POL" | "BLR"
   >("language", "ENG");
@@ -119,7 +124,7 @@ const AppContext = ({ children }: AppContextProps) => {
   ): number => {
     let countedValue: number;
 
-    if (isSalaryCounting === true) {
+    if (isSalaryCounting) {
       countedValue = Number(
         (((wholeValue - partOfValue) / wholeValue) * 100).toFixed(2),
       );
@@ -141,8 +146,8 @@ const AppContext = ({ children }: AppContextProps) => {
       setCurrensyList(data.rates);
     };
 
-    setCurrensyState((prev) => ({ ...prev, currensyCourse: 1 }));
     getCurrensy();
+    setCurrensyState((prev) => ({ ...prev, currensyCourse: 1 }));
 
     localStorage.DarkMode === "true"
       ? document.documentElement.classList.add("dark")

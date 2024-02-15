@@ -31,13 +31,12 @@ const styles = {
       buttonContainer: "flex h-full gap-2",
     },
     edited: {
-      constainer: "flex w-full animate-fee gap-2",
+      form: "flex w-full flex-row gap-2",
       input:
-        "w-full rounded-md bg-gray-400 px-2 py-1 text-black placeholder:text-zinc-700 dark:bg-gray-600 dark:text-darkmode",
+        "w-full rounded-md bg-gray-400 px-2 py-1 text-black placeholder:text-zinc-500 dark:bg-gray-600 dark:text-darkmode",
     },
   },
-  button:
-    "aspect-square h-full w-8 rounded-md bg-gray-400 px-2 py-1 dark:bg-gray-600",
+  button: "aspect-square h-8 rounded-md bg-gray-400 px-2 py-1 dark:bg-gray-600",
 };
 
 export default styles;

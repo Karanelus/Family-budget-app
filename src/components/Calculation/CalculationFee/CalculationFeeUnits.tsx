@@ -53,6 +53,24 @@ const CalculationFeeUnit = () => {
           );
         };
 
+        const onSubmitEdited = (e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+
+          setFeeList((prev) =>
+            prev.map((item) => {
+              if (item.id === fee.id) {
+                return {
+                  ...item,
+                  isEdited: !fee.isEdited,
+                  name: fee.name === "" ? "Name the item" : fee.name,
+                };
+              }
+
+              return item;
+            }),
+          );
+        };
+
         const onClickDelete = () => {
           setFeeList((prev) =>
             prev.filter((item) => {
@@ -65,6 +83,7 @@ const CalculationFeeUnit = () => {
           <CalculationFeeUnitEdited
             feeName={fee.name}
             onChangeName={onChangeName}
+            onSubmitName={onSubmitEdited}
             onClickDelete={onClickDelete}
             onClickEdited={onClickEdited}
           />

@@ -7,6 +7,7 @@ import CalculationFeeUnitButton from "./CalculationFeeUnitButton";
 type Props = {
   feeName: string;
   onChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmitName: (e: React.FormEvent<HTMLFormElement>) => void;
   onClickEdited: () => void;
   onClickDelete: () => void;
 };
@@ -14,6 +15,7 @@ type Props = {
 const CalculationFeeUnitEdited = ({
   feeName,
   onChangeName,
+  onSubmitName,
   onClickEdited,
   onClickDelete,
 }: Props) => {
@@ -21,24 +23,26 @@ const CalculationFeeUnitEdited = ({
   const stylesShortcut = styles.feeSection.edited;
 
   return (
-    <article className={stylesShortcut.constainer}>
-      <label className="w-full">
-        <input
-          type="text"
-          placeholder="Name the item"
-          value={feeName}
-          onChange={onChangeName}
-          className={stylesShortcut.input}
+    <article className="animate-fee">
+      <form onSubmit={onSubmitName} className={stylesShortcut.form}>
+        <label className="w-full">
+          <input
+            type="text"
+            placeholder="Name the item"
+            value={feeName}
+            onChange={onChangeName}
+            className={stylesShortcut.input}
+          />
+        </label>
+        <CalculationFeeUnitButton
+          onClickFunction={onClickEdited}
+          buttonSVG={<EditIcon fill={isDarkmode ? "#999999" : "black"} />}
         />
-      </label>
-      <CalculationFeeUnitButton
-        onClickFunction={onClickEdited}
-        buttonSVG={<EditIcon fill={isDarkmode ? "#999999" : "black"} />}
-      />
-      <CalculationFeeUnitButton
-        onClickFunction={onClickDelete}
-        buttonSVG={<DeleteIcon fill={isDarkmode ? "#999999" : "black"} />}
-      />
+        <CalculationFeeUnitButton
+          onClickFunction={onClickDelete}
+          buttonSVG={<DeleteIcon fill={isDarkmode ? "#999999" : "black"} />}
+        />
+      </form>
     </article>
   );
 };
