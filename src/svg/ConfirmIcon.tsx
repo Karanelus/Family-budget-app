@@ -2,7 +2,7 @@ type Props = {
   fill: string;
 };
 
-const ConfirmIcon = ({ fill = `black` }: Props) => {
+const ConfirmIcon = ({ fill = "black" }: Props) => {
   return (
     <svg
       data-name="Layer 1"

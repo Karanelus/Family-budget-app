@@ -39,7 +39,7 @@ module.exports = {
         section: "min(100%, 47.55rem)",
       },
       textColor: {
-        darkmode: "#999999",
+        darkmode: "#a2a6a2",
       },
     },
   },

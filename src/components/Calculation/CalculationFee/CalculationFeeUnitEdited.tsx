@@ -1,6 +1,6 @@
 import { useAppContextContainer } from "../../../context/AppContext";
+import ConfirmIcon from "../../../svg/ConfirmIcon";
 import DeleteIcon from "../../../svg/DeleteIcon";
-import EditIcon from "../../../svg/EditIcon";
 import styles from "../Calculator.styles";
 import CalculationFeeUnitButton from "./CalculationFeeUnitButton";
 
@@ -36,7 +36,7 @@ const CalculationFeeUnitEdited = ({
         </label>
         <CalculationFeeUnitButton
           onClickFunction={onClickEdited}
-          buttonSVG={<EditIcon fill={isDarkmode ? "#999999" : "black"} />}
+          buttonSVG={<ConfirmIcon fill={isDarkmode ? "#999999" : "black"} />}
         />
         <CalculationFeeUnitButton
           onClickFunction={onClickDelete}

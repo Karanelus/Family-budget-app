@@ -13,6 +13,10 @@ const StatisticsInfoProcentFee = ({ salaryCounting }: Props) => {
       {feeList.map((fee) => {
         const feePercent = countPercent(salaryCounting(), fee.feeCost);
 
+        if (fee.isEdited) {
+          return null;
+        }
+
         return (
           <StartisticsInfoStroke
             name={fee.name}
