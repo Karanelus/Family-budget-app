@@ -1,4 +1,5 @@
 import Calculation from "./components/Calculation/Calculation";
+import Date from "./components/Date/Date";
 import Footer from "./components/Footer/Footer";
 import Logo from "./components/Logo/Logo";
 import Option from "./components/Option/Option";
@@ -15,6 +16,7 @@ const App = () => {
         <Statistics />
       </main>
       <Footer />
+      <Date />
     </AppContext>
   );
 };

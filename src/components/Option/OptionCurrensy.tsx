@@ -35,10 +35,10 @@ const OptionCurrensy = () => {
             };
 
             setFeeList((prev) =>
-              prev.map((fee) => {
+              prev.map((expense) => {
                 return {
-                  ...fee,
-                  feeCost: countMoney(fee.feeCost),
+                  ...expense,
+                  feeCost: countMoney(expense.feeCost),
                 };
               }),
             );

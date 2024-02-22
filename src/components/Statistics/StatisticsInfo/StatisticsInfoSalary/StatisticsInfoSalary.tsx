@@ -17,8 +17,8 @@ const StatisticsInfoSalary = () => {
   const outgoesCounting = (): number => {
     let sum = 0;
 
-    feeList.forEach((fee) => {
-      sum += fee.feeCost;
+    feeList.forEach((expense) => {
+      sum += expense.feeCost;
     });
 
     return sum;

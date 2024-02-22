@@ -30,8 +30,7 @@ body {
 }
 
 #root {
-  min-height: 100dvh;
-  display: grid;
+  @apply grid min-h-dvh;
   grid-template-rows: 1fr auto;
 }
 

@@ -23,7 +23,7 @@ const CalculationFeeUnitEdited = ({
   const stylesShortcut = styles.feeSection.edited;
 
   return (
-    <article className="animate-fee">
+    <article className="animate-expense">
       <form onSubmit={onSubmitName} className={stylesShortcut.form}>
         <label className="w-full">
           <input

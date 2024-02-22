@@ -9,11 +9,11 @@ const CalculationFeeUnit = () => {
 
   return (
     <section className={stylesShortcut.render}>
-      {feeList.map((fee) => {
+      {feeList.map((expense) => {
         const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
           setFeeList((prev) =>
             prev.map((item) => {
-              if (item.id === fee.id) {
+              if (item.id === expense.id) {
                 return { ...item, name: e.target.value };
               }
 
@@ -25,7 +25,7 @@ const CalculationFeeUnit = () => {
         const onChangeFeeCost = (e: React.ChangeEvent<HTMLInputElement>) => {
           setFeeList((prev) =>
             prev.map((item) => {
-              if (item.id === fee.id) {
+              if (item.id === expense.id) {
                 return {
                   ...item,
                   feeCost: e.target.value === "" ? 0 : parseInt(e.target.value),
@@ -40,11 +40,11 @@ const CalculationFeeUnit = () => {
         const onClickEdited = () => {
           setFeeList((prev) =>
             prev.map((item) => {
-              if (item.id === fee.id) {
+              if (item.id === expense.id) {
                 return {
                   ...item,
-                  isEdited: !fee.isEdited,
-                  name: fee.name === "" ? "Name the item" : fee.name,
+                  isEdited: !expense.isEdited,
+                  name: expense.name === "" ? "Name the item" : expense.name,
                 };
               }
 
@@ -58,11 +58,11 @@ const CalculationFeeUnit = () => {
 
           setFeeList((prev) =>
             prev.map((item) => {
-              if (item.id === fee.id) {
+              if (item.id === expense.id) {
                 return {
                   ...item,
-                  isEdited: !fee.isEdited,
-                  name: fee.name === "" ? "Name the item" : fee.name,
+                  isEdited: !expense.isEdited,
+                  name: expense.name === "" ? "Name the item" : expense.name,
                 };
               }
 
@@ -74,14 +74,14 @@ const CalculationFeeUnit = () => {
         const onClickDelete = () => {
           setFeeList((prev) =>
             prev.filter((item) => {
-              return item.id !== fee.id;
+              return item.id !== expense.id;
             }),
           );
         };
 
-        return fee.isEdited ? (
+        return expense.isEdited ? (
           <CalculationFeeUnitEdited
-            feeName={fee.name}
+            feeName={expense.name}
             onChangeName={onChangeName}
             onSubmitName={onSubmitEdited}
             onClickDelete={onClickDelete}
@@ -89,10 +89,10 @@ const CalculationFeeUnit = () => {
           />
         ) : (
           <CalculationFeeUnitDefault
-            feeName={fee.name}
+            feeName={expense.name}
             onClickDelete={onClickDelete}
             onClickEdited={onClickEdited}
-            feeCost={fee.feeCost}
+            feeCost={expense.feeCost}
             onChangeFeeCost={onChangeFeeCost}
           />
         );

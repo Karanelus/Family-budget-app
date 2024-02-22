@@ -56,6 +56,8 @@ type AppContextContainerProps = {
     React.SetStateAction<"ENG" | "POL" | "BLR">
   >;
   htmlElement: DOMTokenList;
+  isDateChanging: boolean;
+  setIsDateChanging: React.Dispatch<React.SetStateAction<boolean>>;
   isDarkmode: boolean;
   setIsDarkmode: React.Dispatch<React.SetStateAction<boolean>>;
   partnersInfo: partnersNameType[];
@@ -69,54 +71,6 @@ export const useAppContextContainer = () => {
 };
 
 const AppContext = ({ children }: AppContextProps) => {
-  const [feeList, setFeeList] = useLocalStorage<feeListType[]>("feeList", []);
-
-  const [partnersInfo, setPartnersInfo] = useLocalStorage<partnersNameType[]>(
-    "nameList",
-    [
-      { id: "1", edited: false, partner: "Partner 1", salary: 0 },
-      { id: "2", edited: false, partner: "Partner 2", salary: 0 },
-    ],
-  );
-
-  const diagramColorPalette: string[] = [
-    "#ff4600",
-    "#ffff00",
-    "#ba00ff",
-    "#ff0000",
-    "#ff7f00",
-    "#00aeae",
-    "#feb300",
-    "#7308a5",
-    "#0000ff",
-    "#00ff00",
-  ];
-
-  const htmlElement = document.documentElement.classList;
-
-  const [isDarkmode, setIsDarkmode] = useLocalStorage<boolean>(
-    "DarkMode",
-    false,
-  );
-
-  const languages: string[] = Object.keys(language);
-
-  const [languagesChoise, setLanguagesChoise] = useLocalStorage<
-    "ENG" | "POL" | "BLR"
-  >("language", "ENG");
-
-  const [currensyState, setCurrensyState] = useLocalStorage<currensyStateType>(
-    "currensyState",
-    {
-      currensyName: ["PLN", "BYN", "EUR", "USD"],
-      currensyPast: "PLN",
-      currensyCurrent: "PLN",
-      currensyCourse: 1,
-    },
-  );
-
-  const [currensyList, setCurrensyList] = useState<currensyListType>({});
-
   const countPercent = (
     wholeValue: number,
     partOfValue: number,
@@ -136,6 +90,18 @@ const AppContext = ({ children }: AppContextProps) => {
     return countedValue;
   };
 
+  const [currensyList, setCurrensyList] = useState<currensyListType>({});
+
+  const [currensyState, setCurrensyState] = useLocalStorage<currensyStateType>(
+    "currensyState",
+    {
+      currensyName: ["PLN", "BYN", "EUR", "USD"],
+      currensyPast: "PLN",
+      currensyCurrent: "PLN",
+      currensyCourse: 1,
+    },
+  );
+
   useEffect(() => {
     const getCurrensy = async () => {
       const BASE_API_URL = `http://data.fixer.io/api/latest?access_key=e1425794f4eddef4c3e2d8a4c4fb4446`;
@@ -154,6 +120,44 @@ const AppContext = ({ children }: AppContextProps) => {
       : document.documentElement.classList.remove("dark");
   }, [setCurrensyState]);
 
+  const diagramColorPalette: string[] = [
+    "#ff4600",
+    "#ffff00",
+    "#ba00ff",
+    "#ff0000",
+    "#ff7f00",
+    "#00aeae",
+    "#feb300",
+    "#7308a5",
+    "#0000ff",
+    "#00ff00",
+  ];
+
+  const [feeList, setFeeList] = useLocalStorage<feeListType[]>("feeList", []);
+
+  const languages: string[] = Object.keys(language);
+
+  const [languagesChoise, setLanguagesChoise] = useLocalStorage<
+    "ENG" | "POL" | "BLR"
+  >("language", "ENG");
+
+  const htmlElement = document.documentElement.classList;
+
+  const [isDateChanging, setIsDateChanging] = useState<boolean>(false);
+
+  const [isDarkmode, setIsDarkmode] = useLocalStorage<boolean>(
+    "DarkMode",
+    false,
+  );
+
+  const [partnersInfo, setPartnersInfo] = useLocalStorage<partnersNameType[]>(
+    "nameList",
+    [
+      { id: "1", edited: false, partner: "Partner 1", salary: 0 },
+      { id: "2", edited: false, partner: "Partner 2", salary: 0 },
+    ],
+  );
+
   return (
     <AppContextContainer.Provider
       value={{
@@ -168,6 +172,8 @@ const AppContext = ({ children }: AppContextProps) => {
         languagesChoise,
         setLanguagesChoise,
         htmlElement,
+        isDateChanging,
+        setIsDateChanging,
         isDarkmode,
         setIsDarkmode,
         partnersInfo,

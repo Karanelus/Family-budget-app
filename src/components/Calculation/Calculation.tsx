@@ -3,6 +3,7 @@ import styles from "./Calculator.styles";
 import language from "../../language/language.json";
 import CalculatorIncome from "./CalculationIncome/CalculatorIncome";
 import CalculationFee from "./CalculationFee/CalculationFee";
+import CalculationDateButton from "./CalculationDateButton";
 
 const Calculation = () => {
   const { languagesChoise } = useAppContextContainer();
@@ -10,6 +11,7 @@ const Calculation = () => {
   return (
     <section className={styles.container}>
       <h1>{language[languagesChoise].title_1}</h1>
+      <CalculationDateButton />
       <CalculatorIncome />
       <CalculationFee />
     </section>

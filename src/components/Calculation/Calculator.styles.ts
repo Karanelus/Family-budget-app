@@ -1,6 +1,6 @@
 const styles = {
   container:
-    "mx-16 my-12 h-section w-section rounded-3xl bg-zinc-500 bg-gradient-to-br  px-8 py-6 duration-300 hover:shadow-section dark:bg-zinc-700 dark:text-black dark:hover:shadow-sectionDark",
+    "mx-16 my-12 h-section w-section rounded-3xl bg-zinc-500 bg-gradient-to-br  px-8 py-6 duration-300 hover:shadow-section dark:bg-zinc-700 dark:text-black dark:hover:shadow-sectionDark relative",
   incomeSection: {
     container: "mb-4 grid place-items-center gap-2 xl:grid-cols-2",
     person: {
@@ -16,7 +16,7 @@ const styles = {
       salaryInput:
         "h-8 rounded-md bg-gray-400 bg-gradient-to-r px-2 py-1 text-black dark:bg-gray-600 dark:text-darkmode",
       editButton:
-        "absolute -right-8 top-0 aspect-square h-7 rounded-md bg-gray-400 p-1 dark:bg-gray-600 md:h-6",
+        "absolute -right-8 top-0 size-6 rounded-md bg-gray-400 p-1 dark:bg-gray-600",
     },
   },
   feeSection: {
@@ -36,7 +36,10 @@ const styles = {
         "w-full rounded-md bg-gray-400 px-2 py-1 text-black placeholder:text-zinc-500 dark:bg-gray-600 dark:text-darkmode",
     },
   },
-  button: "aspect-square h-8 rounded-md bg-gray-400 px-2 py-1 dark:bg-gray-600",
+  button:
+    "size-8 rounded-md bg-gray-400 px-2 py-1 dark:bg-gray-600 aspect-square",
+  buttonDate:
+    "absolute right-8 top-6 size-10 rounded-md bg-gray-400 p-2 hover:cursor-pointer dark:bg-gray-600",
 };
 
 export default styles;

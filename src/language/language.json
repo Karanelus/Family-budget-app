@@ -1,10 +1,10 @@
 {
   "ENG": {
     "title_1": "Count your family budget",
-    "title_1--fixedFee": "Fixed fees",
+    "title_1--fixedFee": "Fixed expenses",
     "title_2": "Statistics",
     "title_2--sumSalary": "Summary salary",
-    "title_2--sumFee": "Summary fee",
+    "title_2--sumFee": "Summary expenses",
     "title_2--forFamUse": "For family use",
     "title_2--perc": "In percent"
   },

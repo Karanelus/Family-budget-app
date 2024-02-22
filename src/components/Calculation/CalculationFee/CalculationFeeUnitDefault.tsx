@@ -29,7 +29,7 @@ const CalculationFeeUnitDefault = ({
         <label className="w-full md:w-auto">
           <input
             type="number"
-            placeholder="Fee"
+            placeholder="expense"
             onChange={onChangeFeeCost}
             value={feeCost}
             className={stylesShortcut.input}
