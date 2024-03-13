@@ -1,50 +1,50 @@
 const dateMonth = [
   {
-    monthNumber: "01",
+    monthNumber: 0,
     monthName: "JAN",
   },
   {
-    monthNumber: "02",
+    monthNumber: 1,
     monthName: "FEB",
   },
   {
-    monthNumber: "03",
+    monthNumber: 2,
     monthName: "MAR",
   },
   {
-    monthNumber: "04",
+    monthNumber: 3,
     monthName: "APR",
   },
   {
-    monthNumber: "05",
+    monthNumber: 4,
     monthName: "MAY",
   },
   {
-    monthNumber: "06",
+    monthNumber: 5,
     monthName: "JUN",
   },
   {
-    monthNumber: "07",
+    monthNumber: 6,
     monthName: "JUL",
   },
   {
-    monthNumber: "08",
+    monthNumber: 7,
     monthName: "AUG",
   },
   {
-    monthNumber: "09",
+    monthNumber: 8,
     monthName: "SEP",
   },
   {
-    monthNumber: "10",
+    monthNumber: 9,
     monthName: "OCT",
   },
   {
-    monthNumber: "11",
+    monthNumber: 10,
     monthName: "NOV",
   },
   {
-    monthNumber: "12",
+    monthNumber: 11,
     monthName: "DEC",
   },
 ];

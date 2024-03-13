@@ -5,12 +5,15 @@ import styles from "./Date.styles";
 import DateMonth from "./DateMonth/DateMonth";
 import DateYear from "./DateYear/DateYear";
 import DateButton from "./DateButton";
+import language from "../../language/language.json";
 
 const Date = () => {
-  const { isDateChanging, isDarkmode, setIsDateChanging } =
+  const { isDateChanging, isDarkmode, setIsDateChanging, languagesChoise } =
     useAppContextContainer();
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const containerRef = useRef<HTMLElement>(null);
+
+  const titleMonth = language[languagesChoise]["title_3"];
 
   const onCLickCloseDate = () => {
     if (!isClosing && isDateChanging) {
@@ -36,7 +39,7 @@ const Date = () => {
       {isDateChanging && (
         <section ref={containerRef} className={styles.container}>
           <div className={styles.dateSection.container}>
-            <h3 className="text-center">Choose month</h3>
+            <h3 className="text-center">{titleMonth}</h3>
             <DateMonth />
             <DateYear />
             <DateButton

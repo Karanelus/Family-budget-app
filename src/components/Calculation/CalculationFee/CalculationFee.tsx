@@ -8,8 +8,13 @@ import language from "../../../language/language.json";
 import CalculationFeeUnits from "./CalculationFeeUnits";
 
 const CalculationFee = () => {
-  const { diagramColorPalette, setFeeList, isDarkmode, languagesChoise } =
-    useAppContextContainer();
+  const {
+    diagramColorPalette,
+    isDarkmode,
+    languagesChoise,
+    setExpensesList,
+    currentDate,
+  } = useAppContextContainer();
   const [colorNoRepeat, setColorNoRepeat] = useLocalStorage<string[]>(
     "colorPalette",
     [],
@@ -46,16 +51,24 @@ const CalculationFee = () => {
   };
 
   const onClickAddFee = () => {
-    setFeeList((prev) => [
+    setExpensesList((prev) => ({
       ...prev,
-      {
-        id: uuidv4(),
-        name: "",
-        color: randomColor(),
-        feeCost: 0,
-        isEdited: true,
+      [currentDate.year]: {
+        [currentDate.month]: {
+          expenses: [
+            ...prev[currentDate.year][currentDate.month].expenses,
+            {
+              id: uuidv4(),
+              name: "",
+              color: randomColor(),
+              feeCost: 0,
+              isEdited: true,
+            },
+          ],
+          persons: [...prev[currentDate.year][currentDate.month].persons],
+        },
       },
-    ]);
+    }));
   };
 
   return (

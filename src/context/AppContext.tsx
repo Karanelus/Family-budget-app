@@ -12,12 +12,37 @@ type AppContextProps = {
   children: ReactNode;
 };
 
-export type feeListType = {
+type currentDateType = {
+  year: number;
+  month: number;
+};
+
+export type expensesListType = {
   id: string;
   name: string;
   color: string;
   feeCost: number;
   isEdited: boolean;
+};
+
+type expensesPersonsType = {
+  id: string;
+  edited: boolean;
+  partner: string;
+  salary: number;
+};
+
+type expensesInfoMonthType = {
+  expenses: expensesListType[];
+  persons: expensesPersonsType[];
+};
+
+type expensesTypeMonth = {
+  [key: number]: expensesInfoMonthType;
+};
+
+type expensesType = {
+  [key: number]: expensesTypeMonth;
 };
 
 export type partnersNameType = {
@@ -27,29 +52,17 @@ export type partnersNameType = {
   salary: number;
 };
 
-type currensyListType = {
-  [key: string]: number;
-};
-
-type currensyStateType = {
-  currensyName: string[];
-  currensyPast: string;
-  currensyCurrent: string;
-  currensyCourse: number;
-};
-
 type AppContextContainerProps = {
+  currentDate: currentDateType;
+  setCurrentDate: React.Dispatch<React.SetStateAction<currentDateType>>;
   countPercent: (
     wholeValue: number,
     partOfValue: number,
     isSalaryCounting?: boolean,
   ) => number;
-  currensyList: currensyListType;
-  currensyState: currensyStateType;
-  setCurrensyState: React.Dispatch<React.SetStateAction<currensyStateType>>;
   diagramColorPalette: string[];
-  feeList: feeListType[];
-  setFeeList: React.Dispatch<React.SetStateAction<feeListType[]>>;
+  expensesList: expensesType;
+  setExpensesList: React.Dispatch<React.SetStateAction<expensesType>>;
   languages: string[];
   languagesChoise: "ENG" | "POL" | "BLR";
   setLanguagesChoise: React.Dispatch<
@@ -60,8 +73,6 @@ type AppContextContainerProps = {
   setIsDateChanging: React.Dispatch<React.SetStateAction<boolean>>;
   isDarkmode: boolean;
   setIsDarkmode: React.Dispatch<React.SetStateAction<boolean>>;
-  partnersInfo: partnersNameType[];
-  setPartnersInfo: React.Dispatch<React.SetStateAction<partnersNameType[]>>;
 };
 
 const AppContextContainer = createContext({} as AppContextContainerProps);
@@ -90,35 +101,44 @@ const AppContext = ({ children }: AppContextProps) => {
     return countedValue;
   };
 
-  const [currensyList, setCurrensyList] = useState<currensyListType>({});
+  const date = new Date();
 
-  const [currensyState, setCurrensyState] = useLocalStorage<currensyStateType>(
-    "currensyState",
+  const [expensesList, setExpensesList] = useLocalStorage<expensesType>(
+    "expensesList",
     {
-      currensyName: ["PLN", "BYN", "EUR", "USD"],
-      currensyPast: "PLN",
-      currensyCurrent: "PLN",
-      currensyCourse: 1,
+      [date.getFullYear()]: {
+        [date.getMonth()]: {
+          expenses: [],
+          persons: [
+            { id: "1", edited: false, partner: "Partner 1", salary: 0 },
+            { id: "2", edited: false, partner: "Partner 2", salary: 0 },
+          ],
+        },
+      },
+    },
+  );
+  const [currentDate, setCurrentDate] = useLocalStorage<currentDateType>(
+    "currentDate",
+    {
+      year: 0,
+      month: 0,
     },
   );
 
   useEffect(() => {
-    const getCurrensy = async () => {
-      const BASE_API_URL = `http://data.fixer.io/api/latest?access_key=e1425794f4eddef4c3e2d8a4c4fb4446`;
+    const date = new Date();
 
-      const resp = await fetch(BASE_API_URL);
-      const data = await resp.json();
-
-      setCurrensyList(data.rates);
-    };
-
-    getCurrensy();
-    setCurrensyState((prev) => ({ ...prev, currensyCourse: 1 }));
+    setCurrentDate((prev) => {
+      if (prev.year === 0) {
+        return { ...prev, year: date.getFullYear(), month: date.getMonth() };
+      }
+      return prev;
+    });
 
     localStorage.DarkMode === "true"
       ? document.documentElement.classList.add("dark")
       : document.documentElement.classList.remove("dark");
-  }, [setCurrensyState]);
+  }, [currentDate, setCurrentDate]);
 
   const diagramColorPalette: string[] = [
     "#ff4600",
@@ -132,8 +152,6 @@ const AppContext = ({ children }: AppContextProps) => {
     "#0000ff",
     "#00ff00",
   ];
-
-  const [feeList, setFeeList] = useLocalStorage<feeListType[]>("feeList", []);
 
   const languages: string[] = Object.keys(language);
 
@@ -150,24 +168,15 @@ const AppContext = ({ children }: AppContextProps) => {
     false,
   );
 
-  const [partnersInfo, setPartnersInfo] = useLocalStorage<partnersNameType[]>(
-    "nameList",
-    [
-      { id: "1", edited: false, partner: "Partner 1", salary: 0 },
-      { id: "2", edited: false, partner: "Partner 2", salary: 0 },
-    ],
-  );
-
   return (
     <AppContextContainer.Provider
       value={{
+        currentDate,
+        setCurrentDate,
         countPercent,
-        currensyList,
-        currensyState,
-        setCurrensyState,
         diagramColorPalette,
-        feeList,
-        setFeeList,
+        expensesList,
+        setExpensesList,
         languages,
         languagesChoise,
         setLanguagesChoise,
@@ -176,8 +185,6 @@ const AppContext = ({ children }: AppContextProps) => {
         setIsDateChanging,
         isDarkmode,
         setIsDarkmode,
-        partnersInfo,
-        setPartnersInfo,
       }}
     >
       {children}

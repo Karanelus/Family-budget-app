@@ -3,28 +3,35 @@ import ArrowIcon from "../../../svg/ArrowIcon";
 import DateButton from "../DateButton";
 import styles from "../Date.styles";
 
-type Props = {};
-
-const DateYear = (props: Props) => {
-  const { isDarkmode } = useAppContextContainer();
+const DateYear = () => {
+  const { isDarkmode, currentDate, setCurrentDate, expensesList } =
+    useAppContextContainer();
   const stylesShortcut = styles.dateSection.year;
 
-  const onClickFuckYourMom = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.classList.contains("rotate-180")
-      ? alert("left")
-      : alert("right");
+  const onClickChangeYear = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (e.currentTarget.classList.contains("rotate-180")) {
+      if (currentDate.year - 1 in expensesList) {
+        setCurrentDate((prev) => ({ ...prev, year: prev.year - 1 }));
+      }
+    }
+
+    if (currentDate.year + 1 in expensesList) {
+      setCurrentDate((prev) => ({ ...prev, year: prev.year + 1 }));
+    }
   };
+
+  console.log(currentDate);
 
   return (
     <section className={stylesShortcut.container}>
       <DateButton
-        onClickFunction={onClickFuckYourMom}
+        onClickFunction={onClickChangeYear}
         leftArrow={true}
         icon={<ArrowIcon fill={isDarkmode ? "ligthgray" : "#999999"} />}
       />
-      <div className="text-center">2024</div>
+      <div className="text-center">{currentDate.year}</div>
       <DateButton
-        onClickFunction={onClickFuckYourMom}
+        onClickFunction={onClickChangeYear}
         icon={<ArrowIcon fill={isDarkmode ? "ligthgray" : "#999999"} />}
       />
     </section>

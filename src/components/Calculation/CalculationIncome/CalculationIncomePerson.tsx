@@ -4,7 +4,8 @@ import CalculationIncomePersonDefault from "./CalculationIncomePersonDefault";
 import CalculationIncomePersonEditing from "./CalculationIncomePersonEditing";
 
 const CalculationIncomePerson = () => {
-  const { partnersInfo, setPartnersInfo } = useAppContextContainer();
+  const { currentDate, expensesList, setExpensesList } =
+    useAppContextContainer();
 
   const firstPerson = useRef<HTMLDivElement>(null);
   const secondPerson = useRef<HTMLDivElement>(null);
@@ -25,18 +26,27 @@ const CalculationIncomePerson = () => {
       () => {
         classChoosen.classList.toggle("before:w-full");
         classChoosen.classList.toggle("before:w-0");
-        setPartnersInfo((partner) =>
-          partner.map((element) => {
-            if (element.id === clickedNum) {
-              return {
-                ...element,
-                edited: !element.edited,
-                partner: element.partner === "" ? "Set name" : element.partner,
-              };
-            }
-            return element;
-          }),
-        );
+        setExpensesList((prev) => ({
+          ...prev,
+          [currentDate.year]: {
+            [currentDate.month]: {
+              expenses: [...prev[currentDate.year][currentDate.month].expenses],
+              persons: prev[currentDate.year][currentDate.month].persons.map(
+                (partner) => {
+                  if (partner.id === clickedNum) {
+                    return {
+                      ...partner,
+                      edited: !partner.edited,
+                      partner:
+                        partner.partner === "" ? "Set name" : partner.partner,
+                    };
+                  }
+                  return partner;
+                },
+              ),
+            },
+          },
+        }));
       },
       { once: true },
     );
@@ -45,59 +55,76 @@ const CalculationIncomePerson = () => {
   const onChangeSalary = (e: React.ChangeEvent<HTMLInputElement>) => {
     const clickedNum = e.target.dataset.clicked!;
 
-    setPartnersInfo((partner) =>
-      partner.map((element) => {
-        if (element.id === clickedNum) {
-          return {
-            ...element,
-            salary: e.target.value === "" ? 0 : Number(e.target.value),
-          };
-        }
+    setExpensesList((prev) => ({
+      ...prev,
+      [currentDate.year]: {
+        [currentDate.month]: {
+          expenses: [...prev[currentDate.year][currentDate.month].expenses],
+          persons: prev[currentDate.year][currentDate.month].persons.map(
+            (partner) => {
+              if (partner.id === clickedNum) {
+                return {
+                  ...partner,
+                  salary: e.target.value === "" ? 0 : Number(e.target.value),
+                };
+              }
 
-        return element;
-      }),
-    );
+              return partner;
+            },
+          ),
+        },
+      },
+    }));
   };
 
   const onChageEditedName = (e: React.ChangeEvent<HTMLInputElement>) => {
     const clickedNum = e.currentTarget.dataset.clicked!;
 
-    setPartnersInfo((partner) =>
-      partner.map((element) => {
-        if (element.id === clickedNum) {
-          return { ...element, partner: e.target.value };
-        }
+    setExpensesList((prev) => ({
+      ...prev,
+      [currentDate.year]: {
+        [currentDate.month]: {
+          expenses: [...prev[currentDate.year][currentDate.month].expenses],
+          persons: prev[currentDate.year][currentDate.month].persons.map(
+            (partner) => {
+              if (partner.id === clickedNum) {
+                return { ...partner, partner: e.target.value };
+              }
 
-        return element;
-      }),
-    );
+              return partner;
+            },
+          ),
+        },
+      },
+    }));
   };
 
   return (
     <>
-      {partnersInfo.map((person) =>
-        person.edited ? (
-          <CalculationIncomePersonEditing
-            key={person.id}
-            reference={refGiven(person.id)}
-            id={person.id}
-            personName={person.partner}
-            personSalary={person.salary}
-            onClickEditName={onClickEditName}
-            onChageEditedName={onChageEditedName}
-            onChangeSalary={onChangeSalary}
-          />
-        ) : (
-          <CalculationIncomePersonDefault
-            key={person.id}
-            reference={refGiven(person.id)}
-            id={person.id}
-            personName={person.partner}
-            personSalary={person.salary}
-            onClickEditName={onClickEditName}
-            onChangeSalary={onChangeSalary}
-          />
-        ),
+      {expensesList[currentDate.year][currentDate.month].persons.map(
+        (person) =>
+          person.edited ? (
+            <CalculationIncomePersonEditing
+              key={person.id}
+              reference={refGiven(person.id)}
+              id={person.id}
+              personName={person.partner}
+              personSalary={person.salary}
+              onClickEditName={onClickEditName}
+              onChageEditedName={onChageEditedName}
+              onChangeSalary={onChangeSalary}
+            />
+          ) : (
+            <CalculationIncomePersonDefault
+              key={person.id}
+              reference={refGiven(person.id)}
+              id={person.id}
+              personName={person.partner}
+              personSalary={person.salary}
+              onClickEditName={onClickEditName}
+              onChangeSalary={onChangeSalary}
+            />
+          ),
       )}
     </>
   );

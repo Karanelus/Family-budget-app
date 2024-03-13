@@ -1,24 +1,24 @@
-import { useAppContextContainer } from "../../context/AppContext";
-import OptionSelector from "./OptionSelector";
+// import { useAppContextContainer } from "../../context/AppContext";
+// import OptionSelector from "./OptionSelector";
 import styles from "./Option.styles";
 
 const OptionCurrensy = () => {
-  const {
-    currensyList,
-    currensyState,
-    setCurrensyState,
-    setFeeList,
-    setPartnersInfo,
-  } = useAppContextContainer();
+  // const {
+  //   currensyList,
+  //   currensyState,
+  //   setCurrensyState,
+  //   setFeeList,
+  //   setPartnersInfo,
+  // } = useAppContextContainer();
 
-  const currencyAvailableList = currensyState.currensyName.filter(
-    (el) => el !== currensyState.currensyCurrent,
-  );
+  // const currencyAvailableList = currensyState.currensyName.filter(
+  //   (el) => el !== currensyState.currensyCurrent,
+  // );
 
   return (
     <ul className={styles.containerOption}>
-      <li className="cursor-default">{currensyState.currensyCurrent}</li>
-      {currencyAvailableList.map((el, index) => {
+      <li className="cursor-default">NaN</li>
+      {/* {currencyAvailableList.map((el, index) => {
         if (el !== currensyState.currensyCurrent) {
           const onClickCurrensyChange = () => {
             setCurrensyState((prev) => ({
@@ -59,7 +59,7 @@ const OptionCurrensy = () => {
             />
           );
         } else return null;
-      })}
+      })} */}
     </ul>
   );
 };

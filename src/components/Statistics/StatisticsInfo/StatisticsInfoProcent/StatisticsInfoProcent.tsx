@@ -4,14 +4,17 @@ import language from "../../../../language/language.json";
 import StatisticsInfoProcentFee from "./StatisticsInfoProcentFee";
 
 const StatisticsInfoProcent = () => {
-  const { languagesChoise, partnersInfo, feeList, countPercent } =
+  const { languagesChoise, currentDate, expensesList, countPercent } =
     useAppContextContainer();
+
+  const expensesListShortcut =
+    expensesList[currentDate.year][currentDate.month];
 
   const procentName = language[languagesChoise]["title_2--perc"];
   const salaryCounting = (): number => {
     let sum = 0;
 
-    partnersInfo.forEach((partner) => {
+    expensesListShortcut.persons.forEach((partner) => {
       sum += partner.salary;
     });
 
@@ -20,7 +23,7 @@ const StatisticsInfoProcent = () => {
   const outgoesCounting = (): number => {
     let sum = 0;
 
-    feeList.forEach((expense) => {
+    expensesListShortcut.expenses.forEach((expense) => {
       sum += expense.feeCost;
     });
 

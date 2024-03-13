@@ -6,7 +6,8 @@
     "title_2--sumSalary": "Summary salary",
     "title_2--sumFee": "Summary expenses",
     "title_2--forFamUse": "For family use",
-    "title_2--perc": "In percent"
+    "title_2--perc": "In percent",
+    "title_3": "Choose monrth"
   },
   "POL": {
     "title_1": "Policz swój budżet rodzinny",
@@ -15,7 +16,8 @@
     "title_2--sumSalary": "Łączna pensja",
     "title_2--sumFee": "Łączne wydatki",
     "title_2--forFamUse": "Łącznie zostaje",
-    "title_2--perc": "Procent wydatków"
+    "title_2--perc": "Procent wydatków",
+    "title_3": "Wybierz miesiąc"
   },
   "BLR": {
     "title_1": "Падліч радзінны бюджэт",
@@ -24,6 +26,7 @@
     "title_2--sumSalary": "Агульныя заробкі",
     "title_2--sumFee": "Агульныя выдаткі",
     "title_2--forFamUse": "Рэшта",
-    "title_2--perc": "Адсотак выдаткаў"
+    "title_2--perc": "Адсотак выдаткаў",
+    "title_3": "Выбяры месяц"
   }
 }

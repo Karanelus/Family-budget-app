@@ -2,11 +2,14 @@ import { useAppContextContainer } from "../../context/AppContext";
 import styles from "./Statistics.styles";
 
 const StatisticsDiagram = () => {
-  const { countPercent, feeList, partnersInfo } = useAppContextContainer();
+  const { countPercent, expensesList, currentDate } = useAppContextContainer();
+
+  const expensesListShortcut =
+    expensesList[currentDate.year][currentDate.month];
 
   const summarySalary = () => {
     let sumSalary = 0;
-    partnersInfo.forEach((person) => {
+    expensesListShortcut.persons.forEach((person) => {
       sumSalary += person.salary;
     });
     return sumSalary;
@@ -15,8 +18,8 @@ const StatisticsDiagram = () => {
   const summaryFee = (): number => {
     let sum = 0;
 
-    feeList.forEach((el) => {
-      sum += el.feeCost;
+    expensesListShortcut.expenses.forEach((expense) => {
+      sum += expense.feeCost;
     });
 
     return sum;
@@ -28,14 +31,14 @@ const StatisticsDiagram = () => {
     let rayPlasing = countPosition;
     let statusReportText = `conic-gradient(#adadad ${rayPlasing}%`;
 
-    if (feeList.length === 0) {
+    if (expensesListShortcut.expenses.length === 0) {
       statusReportText += `, #0000 0`;
     } else {
-      feeList.forEach((el) => {
-        const nextRayPlasing = countPercent(summarySalary(), el.feeCost);
+      expensesListShortcut.expenses.forEach((expense) => {
+        const nextRayPlasing = countPercent(summarySalary(), expense.feeCost);
         let nextRay = rayPlasing + nextRayPlasing;
 
-        statusReportText += `,${el.color} ${rayPlasing}% ${nextRay}%`;
+        statusReportText += `,${expense.color} ${rayPlasing}% ${nextRay}%`;
         rayPlasing = nextRay;
       });
     }

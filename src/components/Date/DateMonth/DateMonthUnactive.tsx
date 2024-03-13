@@ -3,7 +3,7 @@ type Props = {
 };
 
 const DateMonthUnactive = ({ month }: Props) => {
-  return <li className="cursor-not-allowed opacity-75">{month}</li>;
+  return <li className="cursor-not-allowed opacity-25">{month}</li>;
 };
 
 export default DateMonthUnactive;

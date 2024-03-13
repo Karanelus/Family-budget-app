@@ -3,12 +3,16 @@ import language from "../../../../language/language.json";
 import StartisticsInfoStroke from "../StartisticsInfoStroke";
 
 const StatisticsInfoSalary = () => {
-  const { feeList, languagesChoise, partnersInfo } = useAppContextContainer();
+  const { expensesList, currentDate, languagesChoise } =
+    useAppContextContainer();
+
+  const expensesListShortcut =
+    expensesList[currentDate.year][currentDate.month];
 
   const salaryCounting = (): number => {
     let sum = 0;
 
-    partnersInfo.forEach((partner) => {
+    expensesListShortcut.persons.forEach((partner) => {
       sum += partner.salary;
     });
 
@@ -17,7 +21,7 @@ const StatisticsInfoSalary = () => {
   const outgoesCounting = (): number => {
     let sum = 0;
 
-    feeList.forEach((expense) => {
+    expensesListShortcut.expenses.forEach((expense) => {
       sum += expense.feeCost;
     });
 

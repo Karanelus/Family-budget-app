@@ -6,26 +6,28 @@ type Props = {
 };
 
 const StatisticsInfoProcentFee = ({ salaryCounting }: Props) => {
-  const { feeList, countPercent } = useAppContextContainer();
+  const { expensesList, currentDate, countPercent } = useAppContextContainer();
 
   return (
     <>
-      {feeList.map((expense) => {
-        const feePercent = countPercent(salaryCounting(), expense.feeCost);
+      {expensesList[currentDate.year][currentDate.month].expenses.map(
+        (expense) => {
+          const feePercent = countPercent(salaryCounting(), expense.feeCost);
 
-        if (expense.isEdited) {
-          return null;
-        }
+          if (expense.isEdited) {
+            return null;
+          }
 
-        return (
-          <StartisticsInfoStroke
-            name={expense.name}
-            summary={feePercent}
-            isPercent={true}
-            color={expense.color}
-          />
-        );
-      })}
+          return (
+            <StartisticsInfoStroke
+              name={expense.name}
+              summary={feePercent}
+              isPercent={true}
+              color={expense.color}
+            />
+          );
+        },
+      )}
     </>
   );
 };
