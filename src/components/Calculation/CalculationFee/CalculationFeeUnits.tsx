@@ -34,7 +34,17 @@ const CalculationFeeUnit = () => {
             }));
           };
 
-          const onChangeFeeCost = (e: React.ChangeEvent<HTMLInputElement>) => {
+          const onChangeExpenseCost = (
+            e: React.ChangeEvent<HTMLInputElement>,
+          ) => {
+            const inputValue = e.target.value;
+            const expenseCost = () => {
+              if (inputValue.length > 1 && inputValue.charAt(0) === "0") {
+                e.target.value = parseInt(inputValue, 10).toString();
+              }
+              return parseInt(inputValue);
+            };
+
             setExpensesList((prev) => ({
               ...prev,
               [currentDate.year]: {
@@ -45,8 +55,7 @@ const CalculationFeeUnit = () => {
                     if (item.id === expense.id) {
                       return {
                         ...item,
-                        feeCost:
-                          e.target.value === "" ? 0 : parseInt(e.target.value),
+                        feeCost: e.target.value === "" ? 0 : expenseCost(),
                       };
                     }
 
@@ -150,7 +159,7 @@ const CalculationFeeUnit = () => {
               onClickDelete={onClickDelete}
               onClickEdited={onClickEdited}
               feeCost={expense.feeCost}
-              onChangeFeeCost={onChangeFeeCost}
+              onChangeFeeCost={onChangeExpenseCost}
             />
           );
         },

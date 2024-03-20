@@ -54,6 +54,13 @@ const CalculationIncomePerson = () => {
 
   const onChangeSalary = (e: React.ChangeEvent<HTMLInputElement>) => {
     const clickedNum = e.target.dataset.clicked!;
+    const inputValue = e.target.value;
+    const personSalary = () => {
+      if (inputValue.length > 1 && inputValue.charAt(0) === "0") {
+        e.target.value = parseInt(inputValue, 10).toString();
+      }
+      return parseInt(inputValue);
+    };
 
     setExpensesList((prev) => ({
       ...prev,
@@ -65,7 +72,7 @@ const CalculationIncomePerson = () => {
               if (partner.id === clickedNum) {
                 return {
                   ...partner,
-                  salary: e.target.value === "" ? 0 : Number(e.target.value),
+                  salary: e.target.value === "" ? 0 : Number(personSalary()),
                 };
               }
 
