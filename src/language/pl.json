@@ -1,0 +1,14 @@
+{
+  "TITLE": {
+    "MAIN": "Policz swój budżet rodzinny",
+    "FIXED_EXPENSES": "Wydatki stałe",
+    "STATISTICS": "Statystyka",
+    "DATE": "Wybierz miesiąc"
+  },
+  "STATISTICS_INFO": {
+    "SUM_SALARY": "Łączne zarobki",
+    "SUM_EXPENSES": "Łączne wydatki",
+    "FAMILY_USE": "Ogólnie zostaje",
+    "PERCENT": "Procent wydatków"
+  }
+}

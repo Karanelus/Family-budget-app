@@ -1,11 +1,12 @@
 import { useAppContextContainer } from "../../context/AppContext";
 import OptionSelector from "./OptionSelector";
 import styles from "./Option.styles";
+import { useTranslation } from "react-i18next";
 
 const OptionLanguages = () => {
   const { languages, languagesChoise, setLanguagesChoise } =
     useAppContextContainer();
-
+  const { i18n } = useTranslation();
   const fiteredList = [...languages.filter((lang) => lang !== languagesChoise)];
 
   return (
@@ -15,6 +16,7 @@ const OptionLanguages = () => {
         const onClickChangeLanguage = () => {
           if (el === "ENG" || el === "POL" || el === "BLR") {
             setLanguagesChoise(el);
+            i18n.changeLanguage(el);
           }
         };
 

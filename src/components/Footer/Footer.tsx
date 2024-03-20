@@ -15,12 +15,12 @@ const Footer = () => {
     <footer className={styles.footerContainer}>
       <FooterLink
         link={footerLinks[0]}
-        icon={<LinkedInIcon fill={isDarkmode ? "black" : "#d3d3d3"} />}
+        icon={<LinkedInIcon fill={isDarkmode ? "black" : "lightgray"} />}
       />
       <p>{footerText}</p>
       <FooterLink
         link={footerLinks[1]}
-        icon={<GitHubIcon fill={isDarkmode ? "black" : "#d3d3d3"} />}
+        icon={<GitHubIcon fill={isDarkmode ? "black" : "lightgray"} />}
       />
     </footer>
   );

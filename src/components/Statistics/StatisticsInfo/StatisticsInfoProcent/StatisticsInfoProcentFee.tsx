@@ -1,5 +1,5 @@
 import { useAppContextContainer } from "../../../../context/AppContext";
-import StartisticsInfoStroke from "../StartisticsInfoStroke";
+import StatisticsInfoStroke from "../StatisticsInfoStroke";
 
 type Props = {
   salaryCounting: () => number;
@@ -19,7 +19,8 @@ const StatisticsInfoProcentFee = ({ salaryCounting }: Props) => {
           }
 
           return (
-            <StartisticsInfoStroke
+            <StatisticsInfoStroke
+              key={expense.name}
               name={expense.name}
               summary={feePercent}
               isPercent={true}

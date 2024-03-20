@@ -6,7 +6,8 @@ import {
   useState,
 } from "react";
 import useLocalStorage from "../hooks/useLocalStorage.hook";
-import language from "../language/language.json";
+import { I18nextProvider } from "react-i18next";
+import i18n from "../language";
 
 type AppContextProps = {
   children: ReactNode;
@@ -138,7 +139,24 @@ const AppContext = ({ children }: AppContextProps) => {
     localStorage.DarkMode === "true"
       ? document.documentElement.classList.add("dark")
       : document.documentElement.classList.remove("dark");
-  }, [currentDate, setCurrentDate]);
+
+    if (date.getMonth() in expensesList[date.getFullYear()]) {
+      return;
+    } else {
+      setExpensesList((prev) => ({
+        ...prev,
+        [date.getFullYear()]: {
+          [date.getMonth()]: {
+            expenses: [],
+            persons: [
+              { id: "1", edited: false, partner: "Partner 1", salary: 0 },
+              { id: "2", edited: false, partner: "Partner 2", salary: 0 },
+            ],
+          },
+        },
+      }));
+    }
+  }, [currentDate, setCurrentDate, expensesList, setExpensesList]);
 
   const diagramColorPalette: string[] = [
     "#ff4600",
@@ -153,7 +171,7 @@ const AppContext = ({ children }: AppContextProps) => {
     "#00ff00",
   ];
 
-  const languages: string[] = Object.keys(language);
+  const languages: string[] = ["ENG", "POL", "BLR"];
 
   const [languagesChoise, setLanguagesChoise] = useLocalStorage<
     "ENG" | "POL" | "BLR"
@@ -169,26 +187,28 @@ const AppContext = ({ children }: AppContextProps) => {
   );
 
   return (
-    <AppContextContainer.Provider
-      value={{
-        currentDate,
-        setCurrentDate,
-        countPercent,
-        diagramColorPalette,
-        expensesList,
-        setExpensesList,
-        languages,
-        languagesChoise,
-        setLanguagesChoise,
-        htmlElement,
-        isDateChanging,
-        setIsDateChanging,
-        isDarkmode,
-        setIsDarkmode,
-      }}
-    >
-      {children}
-    </AppContextContainer.Provider>
+    <I18nextProvider i18n={i18n}>
+      <AppContextContainer.Provider
+        value={{
+          currentDate,
+          setCurrentDate,
+          countPercent,
+          diagramColorPalette,
+          expensesList,
+          setExpensesList,
+          languages,
+          languagesChoise,
+          setLanguagesChoise,
+          htmlElement,
+          isDateChanging,
+          setIsDateChanging,
+          isDarkmode,
+          setIsDarkmode,
+        }}
+      >
+        {children}
+      </AppContextContainer.Provider>
+    </I18nextProvider>
   );
 };
 

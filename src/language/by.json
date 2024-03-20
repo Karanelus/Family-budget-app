@@ -1,0 +1,14 @@
+{
+  "TITLE": {
+    "MAIN": "Падліч радзінны бюджэт",
+    "FIXED_EXPENSES": "Сталыя выдаткі",
+    "STATISTICS": "Статыстыка",
+    "DATE": "Выбяры месяц"
+  },
+  "STATISTICS_INFO": {
+    "SUM_SALARY": "Агульныя заробкі",
+    "SUM_EXPENSES": "Агульныя выдаткі",
+    "FAMILY_USE": "Рэшта",
+    "PERCENT": "Адсотак выдаткаў"
+  }
+}

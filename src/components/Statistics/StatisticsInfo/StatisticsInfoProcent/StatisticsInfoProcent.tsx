@@ -1,16 +1,16 @@
 import { useAppContextContainer } from "../../../../context/AppContext";
-import StartisticsInfoStroke from "../StartisticsInfoStroke";
-import language from "../../../../language/language.json";
+import { useTranslation } from "react-i18next";
+import StatisticsInfoStroke from "../StatisticsInfoStroke";
 import StatisticsInfoProcentFee from "./StatisticsInfoProcentFee";
 
 const StatisticsInfoProcent = () => {
-  const { languagesChoise, currentDate, expensesList, countPercent } =
-    useAppContextContainer();
+  const { currentDate, expensesList, countPercent } = useAppContextContainer();
+  const { t } = useTranslation();
 
   const expensesListShortcut =
     expensesList[currentDate.year][currentDate.month];
 
-  const procentName = language[languagesChoise]["title_2--perc"];
+  const procentName = t(`STATISTICS_INFO.PERCENT`);
   const salaryCounting = (): number => {
     let sum = 0;
 
@@ -34,7 +34,7 @@ const StatisticsInfoProcent = () => {
 
   return (
     <div className="w-full">
-      <StartisticsInfoStroke
+      <StatisticsInfoStroke
         name={procentName}
         summary={procent}
         isPercent={true}

@@ -1,15 +1,14 @@
 import styles from "./Statistics.styles";
-import language from "../../language/language.json";
-import { useAppContextContainer } from "../../context/AppContext";
 import StatisticsDiagram from "./StatisticsDiagram";
 import StaticticsInfo from "./StatisticsInfo/StaticticsInfo";
+import { useTranslation } from "react-i18next";
 
 const Statistics = () => {
-  const { languagesChoise } = useAppContextContainer();
+  const { t } = useTranslation();
 
   return (
     <section className={styles.container}>
-      <h2 className="mb-4">{language[languagesChoise].title_2}</h2>
+      <h2 className="mb-4">{t(`TITLE.STATISTICS`)}</h2>
       <StatisticsDiagram />
       <StaticticsInfo />
     </section>

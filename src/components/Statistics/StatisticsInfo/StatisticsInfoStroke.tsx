@@ -7,7 +7,7 @@ type Props = {
   color?: string;
 };
 
-const StartisticsInfoStroke = ({ name, summary, isPercent, color }: Props) => {
+const StatisticsInfoStroke = ({ name, summary, isPercent, color }: Props) => {
   const stylesShortcut = styles.info.stroke;
 
   return (
@@ -26,4 +26,4 @@ const StartisticsInfoStroke = ({ name, summary, isPercent, color }: Props) => {
   );
 };
 
-export default StartisticsInfoStroke;
+export default StatisticsInfoStroke;

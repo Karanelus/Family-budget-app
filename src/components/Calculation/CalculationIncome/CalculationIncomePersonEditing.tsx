@@ -41,7 +41,7 @@ const CalculationIncomePersonEditing = ({
           data-clicked={id}
           className={stylePersonContainer.editButton}
         >
-          <ConfirmIcon fill={isDarkmode ? "#999999" : "black"} />
+          <ConfirmIcon fill={isDarkmode ? "black" : "lightgray"} />
         </button>
       </div>
       <label>

@@ -6,9 +6,7 @@ import styles from "../Calculator.styles";
 const CalculationFeeUnit = () => {
   const { expensesList, setExpensesList, currentDate } =
     useAppContextContainer();
-  const stylesShortcut = styles.feeSection;
-
-  console.log(expensesList, currentDate);
+  const stylesShortcut = styles.expensesSection;
 
   return (
     <section className={stylesShortcut.render}>
@@ -138,6 +136,7 @@ const CalculationFeeUnit = () => {
 
           return expense.isEdited ? (
             <CalculationFeeUnitEdited
+              key={expense.name}
               feeName={expense.name}
               onChangeName={onChangeName}
               onSubmitName={onSubmitEdited}
@@ -146,6 +145,7 @@ const CalculationFeeUnit = () => {
             />
           ) : (
             <CalculationFeeUnitDefault
+              key={expense.name}
               feeName={expense.name}
               onClickDelete={onClickDelete}
               onClickEdited={onClickEdited}

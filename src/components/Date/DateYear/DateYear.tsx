@@ -20,8 +20,6 @@ const DateYear = () => {
     }
   };
 
-  console.log(currentDate);
-
   return (
     <section className={stylesShortcut.container}>
       <DateButton

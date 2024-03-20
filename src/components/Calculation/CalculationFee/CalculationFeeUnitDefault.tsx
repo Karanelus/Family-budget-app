@@ -20,7 +20,7 @@ const CalculationFeeUnitDefault = ({
   onClickDelete,
 }: Props) => {
   const { isDarkmode } = useAppContextContainer();
-  const stylesShortcut = styles.feeSection.default;
+  const stylesShortcut = styles.expensesSection.default;
 
   return (
     <article className={stylesShortcut.constainer}>
@@ -38,11 +38,11 @@ const CalculationFeeUnitDefault = ({
         <div className={stylesShortcut.buttonContainer}>
           <CalculationFeeUnitButton
             onClickFunction={onClickEdited}
-            buttonSVG={<EditIcon fill={isDarkmode ? "#999999" : "black"} />}
+            buttonSVG={<EditIcon fill={isDarkmode ? "black" : "lightgray"} />}
           />
           <CalculationFeeUnitButton
             onClickFunction={onClickDelete}
-            buttonSVG={<DeleteIcon fill={isDarkmode ? "#999999" : "black"} />}
+            buttonSVG={<DeleteIcon fill={isDarkmode ? "black" : "lightgray"} />}
           />
         </div>
       </div>

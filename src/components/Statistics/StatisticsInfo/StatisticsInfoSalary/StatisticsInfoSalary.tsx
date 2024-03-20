@@ -1,10 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { useAppContextContainer } from "../../../../context/AppContext";
-import language from "../../../../language/language.json";
-import StartisticsInfoStroke from "../StartisticsInfoStroke";
+import StatisticsInfoStroke from "../StatisticsInfoStroke";
 
 const StatisticsInfoSalary = () => {
-  const { expensesList, currentDate, languagesChoise } =
-    useAppContextContainer();
+  const { expensesList, currentDate } = useAppContextContainer();
+
+  const { t } = useTranslation();
 
   const expensesListShortcut =
     expensesList[currentDate.year][currentDate.month];
@@ -30,15 +31,15 @@ const StatisticsInfoSalary = () => {
 
   const salaryInfoLines = [
     {
-      name: language[languagesChoise]["title_2--sumSalary"],
+      name: t(`STATISTICS_INFO.SUM_SALARY`),
       summary: salaryCounting(),
     },
     {
-      name: language[languagesChoise]["title_2--sumFee"],
+      name: t(`STATISTICS_INFO.SUM_EXPENSES`),
       summary: outgoesCounting(),
     },
     {
-      name: language[languagesChoise]["title_2--forFamUse"],
+      name: t(`STATISTICS_INFO.FAMILY_USE`),
       summary: salaryCounting() - outgoesCounting(),
     },
   ];
@@ -46,7 +47,11 @@ const StatisticsInfoSalary = () => {
   return (
     <article className="mb-4 w-full">
       {salaryInfoLines.map((line) => (
-        <StartisticsInfoStroke name={line.name} summary={line.summary} />
+        <StatisticsInfoStroke
+          key={line.name}
+          name={line.name}
+          summary={line.summary}
+        />
       ))}
     </article>
   );

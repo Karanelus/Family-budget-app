@@ -4,17 +4,14 @@ import AddIcon from "../../../svg/AddIcon";
 import styles from "../Calculator.styles";
 import CalculationFeeUnitButton from "./CalculationFeeUnitButton";
 import useLocalStorage from "../../../hooks/useLocalStorage.hook";
-import language from "../../../language/language.json";
 import CalculationFeeUnits from "./CalculationFeeUnits";
+import { useTranslation } from "react-i18next";
 
 const CalculationFee = () => {
-  const {
-    diagramColorPalette,
-    isDarkmode,
-    languagesChoise,
-    setExpensesList,
-    currentDate,
-  } = useAppContextContainer();
+  const { diagramColorPalette, isDarkmode, setExpensesList, currentDate } =
+    useAppContextContainer();
+  const { t } = useTranslation();
+
   const [colorNoRepeat, setColorNoRepeat] = useLocalStorage<string[]>(
     "colorPalette",
     [],
@@ -72,12 +69,12 @@ const CalculationFee = () => {
   };
 
   return (
-    <article className={styles.feeSection.container}>
-      <p>{language[languagesChoise]["title_1--fixedFee"]}</p>
+    <article className={styles.expensesSection.container}>
+      <p>{t(`TITLE.FIXED_EXPENSES`)}</p>
       <CalculationFeeUnits />
       <CalculationFeeUnitButton
         onClickFunction={onClickAddFee}
-        buttonSVG={<AddIcon fill={isDarkmode ? "#999999" : "black"} />}
+        buttonSVG={<AddIcon fill={isDarkmode ? "black" : "lightgray"} />}
       />
     </article>
   );

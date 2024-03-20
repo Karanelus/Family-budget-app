@@ -1,0 +1,14 @@
+{
+  "TITLE": {
+    "MAIN": "Count your family budget",
+    "FIXED_EXPENSES": "Fixed expenses",
+    "STATISTICS": "Statistics",
+    "DATE": "Choose monrth"
+  },
+  "STATISTICS_INFO": {
+    "SUM_SALARY": "Summary salary",
+    "SUM_EXPENSES": "Summary expenses",
+    "FAMILY_USE": "For family use",
+    "PERCENT": "In percent"
+  }
+}

@@ -15,7 +15,7 @@ const CalculationDateButton = () => {
       onClick={onClickDateChange}
       className={styles.buttonDate}
     >
-      <CalendarIcon fill={isDarkmode ? "#999999" : "black"} />
+      <CalendarIcon fill={isDarkmode ? "black" : "lightgray"} />
     </button>
   );
 };

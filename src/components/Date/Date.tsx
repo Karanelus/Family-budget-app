@@ -5,15 +5,16 @@ import styles from "./Date.styles";
 import DateMonth from "./DateMonth/DateMonth";
 import DateYear from "./DateYear/DateYear";
 import DateButton from "./DateButton";
-import language from "../../language/language.json";
+import { useTranslation } from "react-i18next";
 
 const Date = () => {
-  const { isDateChanging, isDarkmode, setIsDateChanging, languagesChoise } =
+  const { isDateChanging, isDarkmode, setIsDateChanging } =
     useAppContextContainer();
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const containerRef = useRef<HTMLElement>(null);
+  const { t } = useTranslation();
 
-  const titleMonth = language[languagesChoise]["title_3"];
+  const titleMonth = t(`TITLE.DATE`);
 
   const onCLickCloseDate = () => {
     if (!isClosing && isDateChanging) {

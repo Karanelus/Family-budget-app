@@ -20,7 +20,7 @@ const CalculationFeeUnitEdited = ({
   onClickDelete,
 }: Props) => {
   const { isDarkmode } = useAppContextContainer();
-  const stylesShortcut = styles.feeSection.edited;
+  const stylesShortcut = styles.expensesSection.edited;
 
   return (
     <article className="animate-expense">
