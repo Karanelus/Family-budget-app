@@ -40,5 +40,5 @@ You can easily switching between light and dark mode. Also you can change langua
 
 #### Knowned problems
 
-1. Darkmode button work is not correct for SVG images. To fix it, click on the logo
-2. Currensy isn't working correct and can broke the app. Please, dont use it before fix
+App work not correct on GitHub pages for unknown reason. To see it work, make clone from GitHub
+
