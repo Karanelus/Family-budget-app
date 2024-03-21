@@ -1,6 +1,5 @@
 import { useAppContextContainer } from "../../../context/AppContext";
 import EditIcon from "../../../svg/EditIcon";
-import styles from "../Calculator.styles";
 
 type Props = {
   reference: React.RefObject<HTMLDivElement>;
@@ -20,16 +19,18 @@ const CalculationIncomePersonDefault = ({
   onChangeSalary,
 }: Props) => {
   const { isDarkmode } = useAppContextContainer();
-  const stylePersonContainer = styles.incomeSection.person;
 
   return (
-    <div ref={reference} className={stylePersonContainer.container}>
+    <div
+      ref={reference}
+      className="relative before:absolute before:z-10 before:block before:h-[45%] before:w-0 before:origin-right before:-translate-x-1 before:-skew-x-[30deg] before:bg-zinc-500 before:duration-150 before:ease-in before:dark:bg-zinc-700"
+    >
       <div className="relative">
         <p className="text-center">{personName}</p>
         <button
           onClick={onClickEditName}
           data-clicked={id}
-          className={stylePersonContainer.editButton}
+          className="absolute -right-8 top-0 size-6 rounded-md bg-transparent p-1 outline outline-2 -outline-offset-1 outline-gray-400 dark:outline-gray-600"
         >
           <EditIcon fill={isDarkmode ? "black" : "lightgray"} />
         </button>
@@ -41,7 +42,7 @@ const CalculationIncomePersonDefault = ({
           value={personSalary}
           onChange={onChangeSalary}
           data-clicked={id}
-          className={stylePersonContainer.salaryInput}
+          className="h-8 rounded-md bg-transparent px-2 py-1 outline outline-2 -outline-offset-1 outline-gray-400 dark:text-black dark:outline-gray-600"
         />
       </label>
     </div>

@@ -1,5 +1,3 @@
-import styles from "./Date.styles";
-
 type Props = {
   onClickFunction: (e: React.MouseEvent<HTMLButtonElement>) => void;
   icon: React.ReactNode;
@@ -13,10 +11,11 @@ const DateButton = ({
   closeButton,
   leftArrow,
 }: Props) => {
-  const stylesShortcut = styles.dateSection.button;
   const buttonStyle = closeButton
-    ? stylesShortcut.close
-    : `${stylesShortcut.arrow} ${leftArrow && stylesShortcut.leftArrow}`;
+    ? "absolute right-2 top-2 size-6 rounded-sm p-[0.125rem] text-xs outline outline-2 -outline-offset-1 outline-gray-400 dark:outline-gray-600 bg-transparent grid place-items-center"
+    : `"size-6 rounded-sm text-xs grid place-items-center" ${
+        leftArrow && "rotate-180"
+      }`;
 
   return (
     <button onClick={onClickFunction} className={buttonStyle}>

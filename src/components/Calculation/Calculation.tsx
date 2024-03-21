@@ -1,4 +1,3 @@
-import styles from "./Calculator.styles";
 import CalculatorIncome from "./CalculationIncome/CalculatorIncome";
 import CalculationFee from "./CalculationFee/CalculationFee";
 import CalculationDateButton from "./CalculationDateButton";
@@ -8,7 +7,7 @@ const Calculation = () => {
   const { t } = useTranslation();
 
   return (
-    <section className={styles.container}>
+    <section className="relative mx-16 my-12 h-section w-section rounded-3xl bg-zinc-500 bg-gradient-to-br px-8 py-6 duration-300 hover:shadow-section dark:bg-zinc-700 dark:text-black dark:hover:shadow-sectionDark">
       <h1>{t(`TITLE.MAIN`)}</h1>
       <CalculationDateButton />
       <CalculatorIncome />

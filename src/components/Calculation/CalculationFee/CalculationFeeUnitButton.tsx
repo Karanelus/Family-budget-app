@@ -1,5 +1,3 @@
-import styles from "../Calculator.styles";
-
 type Props = {
   onClickFunction: () => void;
   buttonSVG: JSX.Element;
@@ -7,7 +5,10 @@ type Props = {
 
 const CalculationFeeUnitButton = ({ onClickFunction, buttonSVG }: Props) => {
   return (
-    <button onClick={onClickFunction} className={styles.button}>
+    <button
+      onClick={onClickFunction}
+      className="aspect-square size-8 rounded-md bg-transparent px-2 py-1 outline outline-2 -outline-offset-1 outline-gray-400 dark:outline-gray-600"
+    >
       {buttonSVG}
     </button>
   );

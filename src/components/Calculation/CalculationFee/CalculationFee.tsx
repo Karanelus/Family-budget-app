@@ -1,7 +1,6 @@
 import { useAppContextContainer } from "../../../context/AppContext";
 import { v4 as uuidv4 } from "uuid";
 import AddIcon from "../../../svg/AddIcon";
-import styles from "../Calculator.styles";
 import CalculationFeeUnitButton from "./CalculationFeeUnitButton";
 import useLocalStorage from "../../../hooks/useLocalStorage.hook";
 import CalculationFeeUnits from "./CalculationFeeUnits";
@@ -69,7 +68,7 @@ const CalculationFee = () => {
   };
 
   return (
-    <article className={styles.expensesSection.container}>
+    <article className="grid w-full place-items-center gap-2">
       <p>{t(`TITLE.FIXED_EXPENSES`)}</p>
       <CalculationFeeUnits />
       <CalculationFeeUnitButton

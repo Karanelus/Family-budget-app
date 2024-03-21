@@ -1,10 +1,9 @@
-import styles from "../Statistics.styles";
 import StatisticsInfoProcent from "./StatisticsInfoProcent/StatisticsInfoProcent";
 import StatisticsInfoSalary from "./StatisticsInfoSalary/StatisticsInfoSalary";
 
 const StaticticsInfo = () => {
   return (
-    <div className={styles.info.container}>
+    <div className="mx-auto w-3/4 md:w-1/2">
       <StatisticsInfoSalary />
       <StatisticsInfoProcent />
     </div>

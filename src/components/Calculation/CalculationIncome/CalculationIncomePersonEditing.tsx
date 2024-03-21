@@ -1,6 +1,5 @@
 import { useAppContextContainer } from "../../../context/AppContext";
 import ConfirmIcon from "../../../svg/ConfirmIcon";
-import styles from "../Calculator.styles";
 
 type Props = {
   reference: React.RefObject<HTMLDivElement>;
@@ -22,24 +21,26 @@ const CalculationIncomePersonEditing = ({
   onChangeSalary,
 }: Props) => {
   const { isDarkmode } = useAppContextContainer();
-  const stylePersonContainer = styles.incomeSection.person;
 
   return (
-    <div ref={reference} className={stylePersonContainer.container}>
-      <div className={stylePersonContainer.nameInput.editing.container}>
+    <div
+      ref={reference}
+      className="relative before:absolute before:z-10 before:block before:h-[45%] before:w-0 before:origin-right before:-translate-x-1 before:-skew-x-[30deg] before:bg-zinc-500 before:duration-150 before:ease-in before:dark:bg-zinc-700"
+    >
+      <div className="relative mb-1 grid place-items-center">
         <label>
           <input
             type="text"
             value={personName}
             onChange={onChageEditedName}
             data-clicked={id}
-            className={stylePersonContainer.nameInput.editing.text}
+            className="rounded-md bg-gray-400 px-1 dark:bg-gray-600 dark:text-black"
           />
         </label>
         <button
           onClick={onClickEditName}
           data-clicked={id}
-          className={stylePersonContainer.editButton}
+          className="absolute -right-8 top-0 size-6 rounded-md bg-transparent p-1 outline outline-2 -outline-offset-1 outline-gray-400 dark:outline-gray-600"
         >
           <ConfirmIcon fill={isDarkmode ? "black" : "lightgray"} />
         </button>
@@ -51,7 +52,7 @@ const CalculationIncomePersonEditing = ({
           value={personSalary}
           onChange={onChangeSalary}
           data-clicked={id}
-          className={stylePersonContainer.salaryInput}
+          className="h-8 rounded-md bg-transparent px-2 py-1 outline outline-2 -outline-offset-1 outline-gray-400 dark:text-black dark:outline-gray-600"
         />
       </label>
     </div>

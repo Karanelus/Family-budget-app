@@ -1,9 +1,8 @@
-import styles from "../Calculator.styles";
 import CalculationIncomePerson from "./CalculationIncomePerson";
 
 const CalculatorIncome = () => {
   return (
-    <article className={styles.incomeSection.container}>
+    <article className="mb-4 grid place-items-center gap-2 xl:grid-cols-2">
       <CalculationIncomePerson />
     </article>
   );

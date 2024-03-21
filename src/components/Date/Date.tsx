@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { useAppContextContainer } from "../../context/AppContext";
 import CloseIcon from "../../svg/CloseIcon";
-import styles from "./Date.styles";
 import DateMonth from "./DateMonth/DateMonth";
 import DateYear from "./DateYear/DateYear";
 import DateButton from "./DateButton";
@@ -38,14 +37,17 @@ const Date = () => {
   return (
     <>
       {isDateChanging && (
-        <section ref={containerRef} className={styles.container}>
-          <div className={styles.dateSection.container}>
+        <section
+          ref={containerRef}
+          className="fixed grid h-full w-full animate-dateContainerOpen place-items-center bg-dataContainer backdrop-blur-sm"
+        >
+          <div className="relative flex h-80 w-64 flex-col items-center justify-between rounded-lg bg-zinc-500 p-6 dark:bg-zinc-700 dark:text-black">
             <h3 className="text-center">{titleMonth}</h3>
             <DateMonth />
             <DateYear />
             <DateButton
               onClickFunction={onCLickCloseDate}
-              icon={<CloseIcon fill={isDarkmode ? "#999999" : "black"} />}
+              icon={<CloseIcon fill={isDarkmode ? "black" : "lightgray"} />}
               closeButton={true}
             />
           </div>

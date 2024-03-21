@@ -1,6 +1,5 @@
 import { useAppContextContainer } from "../../context/AppContext";
 import OptionSelector from "./OptionSelector";
-import styles from "./Option.styles";
 import { useTranslation } from "react-i18next";
 
 const OptionLanguages = () => {
@@ -10,7 +9,7 @@ const OptionLanguages = () => {
   const fiteredList = [...languages.filter((lang) => lang !== languagesChoise)];
 
   return (
-    <ul className={styles.containerOption}>
+    <ul className="group w-7 dark:text-black">
       <li className="cursor-default">{languagesChoise}</li>
       {fiteredList.map((el, index) => {
         const onClickChangeLanguage = () => {

@@ -1,5 +1,3 @@
-import styles from "../Statistics.styles";
-
 type Props = {
   name: string;
   summary: number;
@@ -8,10 +6,8 @@ type Props = {
 };
 
 const StatisticsInfoStroke = ({ name, summary, isPercent, color }: Props) => {
-  const stylesShortcut = styles.info.stroke;
-
   return (
-    <article className={stylesShortcut.line}>
+    <article className="relative flex flex-row justify-between">
       <h3>{name}</h3>
       <h3 key={summary} className="animate-sum">
         {summary}
@@ -19,7 +15,7 @@ const StatisticsInfoStroke = ({ name, summary, isPercent, color }: Props) => {
       {isPercent && (
         <div
           style={{ backgroundColor: `${color}` }}
-          className={stylesShortcut.color}
+          className="absolute -left-6 aspect-square h-1/2 translate-y-1/2 rounded-full dark:brightness-75"
         ></div>
       )}
     </article>

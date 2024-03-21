@@ -1,7 +1,6 @@
 import { useAppContextContainer } from "../../../context/AppContext";
 import ConfirmIcon from "../../../svg/ConfirmIcon";
 import DeleteIcon from "../../../svg/DeleteIcon";
-import styles from "../Calculator.styles";
 import CalculationFeeUnitButton from "./CalculationFeeUnitButton";
 
 type Props = {
@@ -20,18 +19,17 @@ const CalculationFeeUnitEdited = ({
   onClickDelete,
 }: Props) => {
   const { isDarkmode } = useAppContextContainer();
-  const stylesShortcut = styles.expensesSection.edited;
 
   return (
     <article className="animate-expense">
-      <form onSubmit={onSubmitName} className={stylesShortcut.form}>
+      <form onSubmit={onSubmitName} className="flex w-full flex-row gap-2">
         <label className="w-full">
           <input
             type="text"
             placeholder="Name the item"
             value={feeName}
             onChange={onChangeName}
-            className={stylesShortcut.input}
+            className="w-full rounded-md bg-gray-400 px-2 py-1 text-black placeholder:text-zinc-500 dark:bg-gray-600 dark:text-black"
           />
         </label>
         <CalculationFeeUnitButton

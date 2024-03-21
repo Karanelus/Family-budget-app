@@ -1,7 +1,6 @@
 import { useAppContextContainer } from "../../context/AppContext";
 import MoonIcon from "../../svg/MoonIcon";
 import SunIcon from "../../svg/SunIcon";
-import styles from "./Option.styles";
 
 const OptionDarkmode = () => {
   const { htmlElement, isDarkmode, setIsDarkmode } = useAppContextContainer();
@@ -20,7 +19,7 @@ const OptionDarkmode = () => {
   return (
     <div
       onClick={onClickChangeColorMode}
-      className={styles.containerOption + " cursor-pointer"}
+      className="group w-7 cursor-pointer dark:text-black"
     >
       {currentIcon}
     </div>

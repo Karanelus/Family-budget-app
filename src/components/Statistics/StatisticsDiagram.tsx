@@ -1,5 +1,4 @@
 import { useAppContextContainer } from "../../context/AppContext";
-import styles from "./Statistics.styles";
 
 const StatisticsDiagram = () => {
   const { countPercent, expensesList, currentDate } = useAppContextContainer();
@@ -53,7 +52,7 @@ const StatisticsDiagram = () => {
   };
 
   return (
-    <section className={styles.diagram}>
+    <section className="relative mx-auto mb-8 aspect-square w-1/2 dark:brightness-75">
       <article style={componentStyle} className="h-full rounded-full"></article>
     </section>
   );

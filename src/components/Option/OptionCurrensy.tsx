@@ -1,8 +1,6 @@
-import styles from "./Option.styles";
-
 const OptionCurrensy = () => {
   return (
-    <ul className={styles.containerOption} title="Coming soon...">
+    <ul className="group w-7 dark:text-black" title="Coming soon...">
       <li className="cursor-not-allowed">CUR</li>
     </ul>
   );

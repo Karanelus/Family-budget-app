@@ -1,7 +1,6 @@
 import { useAppContextContainer } from "../../../context/AppContext";
 import DeleteIcon from "../../../svg/DeleteIcon";
 import EditIcon from "../../../svg/EditIcon";
-import styles from "../Calculator.styles";
 import CalculationFeeUnitButton from "./CalculationFeeUnitButton";
 
 type Props = {
@@ -20,22 +19,21 @@ const CalculationFeeUnitDefault = ({
   onClickDelete,
 }: Props) => {
   const { isDarkmode } = useAppContextContainer();
-  const stylesShortcut = styles.expensesSection.default;
 
   return (
-    <article className={stylesShortcut.constainer}>
+    <article className="flex w-full flex-col items-center justify-center md:flex-row md:justify-between">
       <h3>{feeName}</h3>
-      <div className={stylesShortcut.functionPart}>
+      <div className="flex w-full flex-row gap-2 md:w-auto">
         <label className="w-full md:w-auto">
           <input
             type="number"
             placeholder="expense"
             onChange={onChangeFeeCost}
             value={feeCost}
-            className={stylesShortcut.input}
+            className="w-full rounded-md bg-transparent px-2 py-1 outline outline-2 -outline-offset-1 outline-gray-400 placeholder:text-zinc-600 dark:text-black dark:outline-gray-600 md:w-auto"
           />
         </label>
-        <div className={stylesShortcut.buttonContainer}>
+        <div className="flex h-full gap-2">
           <CalculationFeeUnitButton
             onClickFunction={onClickEdited}
             buttonSVG={<EditIcon fill={isDarkmode ? "black" : "lightgray"} />}

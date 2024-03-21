@@ -1,15 +1,13 @@
 import { useAppContextContainer } from "../../../context/AppContext";
 import CalculationFeeUnitDefault from "./CalculationFeeUnitDefault";
 import CalculationFeeUnitEdited from "./CalculationFeeUnitEdited";
-import styles from "../Calculator.styles";
 
 const CalculationFeeUnit = () => {
   const { expensesList, setExpensesList, currentDate } =
     useAppContextContainer();
-  const stylesShortcut = styles.expensesSection;
 
   return (
-    <section className={stylesShortcut.render}>
+    <section className="flex w-full flex-col gap-2">
       {expensesList[currentDate.year][currentDate.month].expenses.map(
         (expense) => {
           const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
