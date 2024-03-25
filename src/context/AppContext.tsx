@@ -121,20 +121,13 @@ const AppContext = ({ children }: AppContextProps) => {
   const [currentDate, setCurrentDate] = useLocalStorage<currentDateType>(
     "currentDate",
     {
-      year: 0,
-      month: 0,
+      year: date.getFullYear(),
+      month: date.getMonth(),
     },
   );
 
   useEffect(() => {
     const date = new Date();
-
-    setCurrentDate((prev) => {
-      if (prev.year === 0) {
-        return { ...prev, year: date.getFullYear(), month: date.getMonth() };
-      }
-      return prev;
-    });
 
     localStorage.DarkMode === "true"
       ? document.documentElement.classList.add("dark")
