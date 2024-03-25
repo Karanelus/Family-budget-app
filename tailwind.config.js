@@ -29,8 +29,8 @@ module.exports = {
           to: { opacity: "0", scale: "1.05" },
         },
         expense: {
-          from: { opacity: "0", scale: "0" },
-          to: { opacity: "1", scale: "1" },
+          from: { opacity: "0" },
+          to: { opacity: "1" },
         },
         footerAnimation: {
           from: { opacity: "0", transform: "translateY(100%)" },

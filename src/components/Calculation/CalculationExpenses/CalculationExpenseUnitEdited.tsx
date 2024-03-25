@@ -1,7 +1,7 @@
 import { useAppContextContainer } from "../../../context/AppContext";
 import ConfirmIcon from "../../../svg/ConfirmIcon";
 import DeleteIcon from "../../../svg/DeleteIcon";
-import CalculationFeeUnitButton from "./CalculationFeeUnitButton";
+import CalculationExpenseUnitButton from "./CalculationExpenseUnitButton";
 
 type Props = {
   feeName: string;
@@ -11,7 +11,7 @@ type Props = {
   onClickDelete: () => void;
 };
 
-const CalculationFeeUnitEdited = ({
+const CalculationExpenseUnitEdited = ({
   feeName,
   onChangeName,
   onSubmitName,
@@ -29,20 +29,20 @@ const CalculationFeeUnitEdited = ({
             placeholder="Name the item"
             value={feeName}
             onChange={onChangeName}
-            className="w-full rounded-md bg-gray-400 px-2 py-1 text-black placeholder:text-zinc-500 dark:bg-gray-600 dark:text-black"
+            className="w-full rounded-md bg-transparent px-2 py-1 outline outline-2 -outline-offset-1 outline-gray-400 placeholder:text-zinc-500 dark:outline-gray-600"
           />
         </label>
-        <CalculationFeeUnitButton
+        <CalculationExpenseUnitButton
           onClickFunction={onClickEdited}
-          buttonSVG={<ConfirmIcon fill={isDarkmode ? "#999999" : "black"} />}
+          buttonSVG={<ConfirmIcon fill={isDarkmode ? "black" : "lightgray"} />}
         />
-        <CalculationFeeUnitButton
+        <CalculationExpenseUnitButton
           onClickFunction={onClickDelete}
-          buttonSVG={<DeleteIcon fill={isDarkmode ? "#999999" : "black"} />}
+          buttonSVG={<DeleteIcon fill={isDarkmode ? "black" : "lightgray"} />}
         />
       </form>
     </article>
   );
 };
 
-export default CalculationFeeUnitEdited;
+export default CalculationExpenseUnitEdited;

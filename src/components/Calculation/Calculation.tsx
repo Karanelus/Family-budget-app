@@ -1,5 +1,5 @@
 import CalculatorIncome from "./CalculationIncome/CalculatorIncome";
-import CalculationFee from "./CalculationFee/CalculationFee";
+import CalculationExpense from "./CalculationExpenses/CalculationExpense";
 import CalculationDateButton from "./CalculationDateButton";
 import { useTranslation } from "react-i18next";
 
@@ -11,7 +11,7 @@ const Calculation = () => {
       <h1>{t(`TITLE.MAIN`)}</h1>
       <CalculationDateButton />
       <CalculatorIncome />
-      <CalculationFee />
+      <CalculationExpense />
     </section>
   );
 };

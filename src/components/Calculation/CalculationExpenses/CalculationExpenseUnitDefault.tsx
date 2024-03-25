@@ -1,7 +1,7 @@
 import { useAppContextContainer } from "../../../context/AppContext";
 import DeleteIcon from "../../../svg/DeleteIcon";
 import EditIcon from "../../../svg/EditIcon";
-import CalculationFeeUnitButton from "./CalculationFeeUnitButton";
+import CalculationExpenseUnitButton from "./CalculationExpenseUnitButton";
 
 type Props = {
   feeName: string;
@@ -11,7 +11,7 @@ type Props = {
   onClickDelete: () => void;
 };
 
-const CalculationFeeUnitDefault = ({
+const CalculationExpenseUnitDefault = ({
   feeName,
   feeCost,
   onChangeFeeCost,
@@ -21,7 +21,7 @@ const CalculationFeeUnitDefault = ({
   const { isDarkmode } = useAppContextContainer();
 
   return (
-    <article className="flex w-full flex-col items-center justify-center md:flex-row md:justify-between">
+    <article className="flex w-full animate-expense flex-col items-center justify-center md:flex-row md:justify-between">
       <h3>{feeName}</h3>
       <div className="flex w-full flex-row gap-2 md:w-auto">
         <label className="w-full md:w-auto">
@@ -34,11 +34,11 @@ const CalculationFeeUnitDefault = ({
           />
         </label>
         <div className="flex h-full gap-2">
-          <CalculationFeeUnitButton
+          <CalculationExpenseUnitButton
             onClickFunction={onClickEdited}
             buttonSVG={<EditIcon fill={isDarkmode ? "black" : "lightgray"} />}
           />
-          <CalculationFeeUnitButton
+          <CalculationExpenseUnitButton
             onClickFunction={onClickDelete}
             buttonSVG={<DeleteIcon fill={isDarkmode ? "black" : "lightgray"} />}
           />
@@ -48,4 +48,4 @@ const CalculationFeeUnitDefault = ({
   );
 };
 
-export default CalculationFeeUnitDefault;
+export default CalculationExpenseUnitDefault;

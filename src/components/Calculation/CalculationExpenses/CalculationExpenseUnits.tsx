@@ -1,8 +1,8 @@
 import { useAppContextContainer } from "../../../context/AppContext";
-import CalculationFeeUnitDefault from "./CalculationFeeUnitDefault";
-import CalculationFeeUnitEdited from "./CalculationFeeUnitEdited";
+import CalculationExpenseUnitDefault from "./CalculationExpenseUnitDefault";
+import CalculationExpenseUnitEdited from "./CalculationExpenseUnitEdited";
 
-const CalculationFeeUnit = () => {
+const CalculationExpenseUnit = () => {
   const { expensesList, setExpensesList, currentDate } =
     useAppContextContainer();
 
@@ -142,7 +142,7 @@ const CalculationFeeUnit = () => {
           };
 
           return expense.isEdited ? (
-            <CalculationFeeUnitEdited
+            <CalculationExpenseUnitEdited
               key={expense.name}
               feeName={expense.name}
               onChangeName={onChangeName}
@@ -151,7 +151,7 @@ const CalculationFeeUnit = () => {
               onClickEdited={onClickEdited}
             />
           ) : (
-            <CalculationFeeUnitDefault
+            <CalculationExpenseUnitDefault
               key={expense.name}
               feeName={expense.name}
               onClickDelete={onClickDelete}
@@ -166,4 +166,4 @@ const CalculationFeeUnit = () => {
   );
 };
 
-export default CalculationFeeUnit;
+export default CalculationExpenseUnit;

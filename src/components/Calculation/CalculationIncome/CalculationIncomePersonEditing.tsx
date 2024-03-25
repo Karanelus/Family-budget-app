@@ -34,7 +34,7 @@ const CalculationIncomePersonEditing = ({
             value={personName}
             onChange={onChageEditedName}
             data-clicked={id}
-            className="rounded-md bg-gray-400 px-1 dark:bg-gray-600 dark:text-black"
+            className="rounded-md bg-transparent px-1 outline outline-2 -outline-offset-1 outline-gray-400 dark:text-black dark:outline-gray-600"
           />
         </label>
         <button

@@ -1,12 +1,12 @@
 import { useAppContextContainer } from "../../../context/AppContext";
 import { v4 as uuidv4 } from "uuid";
 import AddIcon from "../../../svg/AddIcon";
-import CalculationFeeUnitButton from "./CalculationFeeUnitButton";
+import CalculationExpenseUnitButton from "./CalculationExpenseUnitButton";
 import useLocalStorage from "../../../hooks/useLocalStorage.hook";
-import CalculationFeeUnits from "./CalculationFeeUnits";
+import CalculationExpenseUnits from "./CalculationExpenseUnits";
 import { useTranslation } from "react-i18next";
 
-const CalculationFee = () => {
+const CalculationExpense = () => {
   const { diagramColorPalette, isDarkmode, setExpensesList, currentDate } =
     useAppContextContainer();
   const { t } = useTranslation();
@@ -70,8 +70,8 @@ const CalculationFee = () => {
   return (
     <article className="grid w-full place-items-center gap-2">
       <p>{t(`TITLE.FIXED_EXPENSES`)}</p>
-      <CalculationFeeUnits />
-      <CalculationFeeUnitButton
+      <CalculationExpenseUnits />
+      <CalculationExpenseUnitButton
         onClickFunction={onClickAddFee}
         buttonSVG={<AddIcon fill={isDarkmode ? "black" : "lightgray"} />}
       />
@@ -79,4 +79,4 @@ const CalculationFee = () => {
   );
 };
 
-export default CalculationFee;
+export default CalculationExpense;

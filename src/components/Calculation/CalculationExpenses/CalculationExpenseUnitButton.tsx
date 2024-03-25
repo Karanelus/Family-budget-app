@@ -3,7 +3,10 @@ type Props = {
   buttonSVG: JSX.Element;
 };
 
-const CalculationFeeUnitButton = ({ onClickFunction, buttonSVG }: Props) => {
+const CalculationExpenseUnitButton = ({
+  onClickFunction,
+  buttonSVG,
+}: Props) => {
   return (
     <button
       onClick={onClickFunction}
@@ -14,4 +17,4 @@ const CalculationFeeUnitButton = ({ onClickFunction, buttonSVG }: Props) => {
   );
 };
 
-export default CalculationFeeUnitButton;
+export default CalculationExpenseUnitButton;
