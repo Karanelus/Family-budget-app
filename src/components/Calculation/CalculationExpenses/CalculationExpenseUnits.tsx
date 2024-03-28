@@ -143,7 +143,6 @@ const CalculationExpenseUnit = () => {
 
           return expense.isEdited ? (
             <CalculationExpenseUnitEdited
-              key={expense.name}
               feeName={expense.name}
               onChangeName={onChangeName}
               onSubmitName={onSubmitEdited}
