@@ -1,6 +1,6 @@
 import { useAppContextContainer } from "../../context/AppContext";
-import OptionSelector from "./OptionSelector";
 import { useTranslation } from "react-i18next";
+import OptionSelector from "./OptionSelector";
 
 const OptionLanguages = () => {
   const { languages, languagesChoise, setLanguagesChoise } =

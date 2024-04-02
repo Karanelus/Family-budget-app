@@ -14,6 +14,7 @@ const CalculationExpenseUnit = () => {
             setExpensesList((prev) => ({
               ...prev,
               [currentDate.year]: {
+                ...prev[currentDate.year],
                 [currentDate.month]: {
                   expenses: prev[currentDate.year][
                     currentDate.month
@@ -46,6 +47,7 @@ const CalculationExpenseUnit = () => {
             setExpensesList((prev) => ({
               ...prev,
               [currentDate.year]: {
+                ...prev[currentDate.year],
                 [currentDate.month]: {
                   expenses: prev[currentDate.year][
                     currentDate.month
@@ -71,6 +73,7 @@ const CalculationExpenseUnit = () => {
             setExpensesList((prev) => ({
               ...prev,
               [currentDate.year]: {
+                ...prev[currentDate.year],
                 [currentDate.month]: {
                   expenses: prev[currentDate.year][
                     currentDate.month
@@ -100,6 +103,7 @@ const CalculationExpenseUnit = () => {
             setExpensesList((prev) => ({
               ...prev,
               [currentDate.year]: {
+                ...prev[currentDate.year],
                 [currentDate.month]: {
                   expenses: prev[currentDate.year][
                     currentDate.month
@@ -127,6 +131,7 @@ const CalculationExpenseUnit = () => {
             setExpensesList((prev) => ({
               ...prev,
               [currentDate.year]: {
+                ...prev[currentDate.year],
                 [currentDate.month]: {
                   expenses: prev[currentDate.year][
                     currentDate.month

@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import { useAppContextContainer } from "../../context/AppContext";
+import { useTranslation } from "react-i18next";
 import CloseIcon from "../../svg/CloseIcon";
 import DateMonth from "./DateMonth/DateMonth";
 import DateYear from "./DateYear/DateYear";
 import DateButton from "./DateButton";
-import { useTranslation } from "react-i18next";
 
 const Date = () => {
   const { isDateChanging, isDarkmode, setIsDateChanging } =

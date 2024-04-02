@@ -139,6 +139,7 @@ const AppContext = ({ children }: AppContextProps) => {
       setExpensesList((prev) => ({
         ...prev,
         [date.getFullYear()]: {
+          ...prev[date.getFullYear()],
           [date.getMonth()]: {
             expenses: [],
             persons: [

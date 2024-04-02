@@ -1,6 +1,6 @@
+import { useTranslation } from "react-i18next";
 import StatisticsDiagram from "./StatisticsDiagram";
 import StaticticsInfo from "./StatisticsInfo/StaticticsInfo";
-import { useTranslation } from "react-i18next";
 
 const Statistics = () => {
   const { t } = useTranslation();

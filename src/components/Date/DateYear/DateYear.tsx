@@ -22,12 +22,14 @@ const DateYear = () => {
     <section className="flex w-3/4 items-center justify-between">
       <DateButton
         onClickFunction={onClickChangeYear}
+        isYearExist={currentDate.year - 1 in expensesList}
         leftArrow={true}
         icon={<ArrowIcon fill={isDarkmode ? "black" : "lightgray"} />}
       />
       <div className="text-center">{currentDate.year}</div>
       <DateButton
         onClickFunction={onClickChangeYear}
+        isYearExist={currentDate.year + 1 in expensesList}
         icon={<ArrowIcon fill={isDarkmode ? "black" : "lightgray"} />}
       />
     </section>

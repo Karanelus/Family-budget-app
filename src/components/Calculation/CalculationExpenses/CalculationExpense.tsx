@@ -1,10 +1,10 @@
 import { useAppContextContainer } from "../../../context/AppContext";
+import { useTranslation } from "react-i18next";
 import { v4 as uuidv4 } from "uuid";
+import useLocalStorage from "../../../hooks/useLocalStorage.hook";
 import AddIcon from "../../../svg/AddIcon";
 import CalculationExpenseUnitButton from "./CalculationExpenseUnitButton";
-import useLocalStorage from "../../../hooks/useLocalStorage.hook";
 import CalculationExpenseUnits from "./CalculationExpenseUnits";
-import { useTranslation } from "react-i18next";
 
 const CalculationExpense = () => {
   const { diagramColorPalette, isDarkmode, setExpensesList, currentDate } =
@@ -50,6 +50,7 @@ const CalculationExpense = () => {
     setExpensesList((prev) => ({
       ...prev,
       [currentDate.year]: {
+        ...prev[currentDate.year],
         [currentDate.month]: {
           expenses: [
             ...prev[currentDate.year][currentDate.month].expenses,

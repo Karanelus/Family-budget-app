@@ -1,6 +1,6 @@
+import { useAppContextContainer } from "../../../context/AppContext";
 import dateMonth from "../Date.data";
 import DateMonthActive from "./DateMonthActive";
-import { useAppContextContainer } from "../../../context/AppContext";
 import DateMonthUnactive from "./DateMonthUnactive";
 
 const DateMonth = () => {
@@ -10,9 +10,15 @@ const DateMonth = () => {
     <ul className="grid w-full grid-cols-3 grid-rows-4 gap-3 text-center">
       {dateMonth.map((month, index) =>
         expensesList[currentDate.year][index] ? (
-          <DateMonthActive month={month.monthName} />
+          <DateMonthActive
+            month={month.monthName}
+            monthNumber={month.monthNumber}
+          />
         ) : (
-          <DateMonthUnactive month={month.monthName} />
+          <DateMonthUnactive
+            month={month.monthName}
+            monthNumber={month.monthNumber}
+          />
         ),
       )}
     </ul>

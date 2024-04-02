@@ -29,6 +29,7 @@ const CalculationIncomePerson = () => {
         setExpensesList((prev) => ({
           ...prev,
           [currentDate.year]: {
+            ...prev[currentDate.year],
             [currentDate.month]: {
               expenses: [...prev[currentDate.year][currentDate.month].expenses],
               persons: prev[currentDate.year][currentDate.month].persons.map(
@@ -65,6 +66,7 @@ const CalculationIncomePerson = () => {
     setExpensesList((prev) => ({
       ...prev,
       [currentDate.year]: {
+        ...prev[currentDate.year],
         [currentDate.month]: {
           expenses: [...prev[currentDate.year][currentDate.month].expenses],
           persons: prev[currentDate.year][currentDate.month].persons.map(
@@ -90,6 +92,7 @@ const CalculationIncomePerson = () => {
     setExpensesList((prev) => ({
       ...prev,
       [currentDate.year]: {
+        ...prev[currentDate.year],
         [currentDate.month]: {
           expenses: [...prev[currentDate.year][currentDate.month].expenses],
           persons: prev[currentDate.year][currentDate.month].persons.map(
