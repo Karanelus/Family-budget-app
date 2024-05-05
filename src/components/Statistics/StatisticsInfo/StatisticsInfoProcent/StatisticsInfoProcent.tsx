@@ -33,15 +33,20 @@ const StatisticsInfoProcent = () => {
   const procent = countPercent(salaryCounting(), outgoesCounting());
 
   return (
-    <div className="w-full">
+    <>
       <StatisticsInfoStroke
         name={procentName}
         summary={procent}
         isPercent={true}
         color="#adadad"
       />
-      <StatisticsInfoProcentFee salaryCounting={salaryCounting} />
-    </div>
+      <section
+        data-scroll
+        className="-ml-12 h-56 w-[calc(100%+3rem)] overflow-scroll pl-12"
+      >
+        <StatisticsInfoProcentFee salaryCounting={salaryCounting} />
+      </section>
+    </>
   );
 };
 

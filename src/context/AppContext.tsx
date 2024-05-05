@@ -133,6 +133,8 @@ const AppContext = ({ children }: AppContextProps) => {
       ? document.documentElement.classList.add("dark")
       : document.documentElement.classList.remove("dark");
 
+    console.log(expensesList);
+
     if (date.getMonth() in expensesList[date.getFullYear()]) {
       return;
     } else {

@@ -45,7 +45,7 @@ const StatisticsInfoSalary = () => {
   ];
 
   return (
-    <article className="mb-4 w-full">
+    <section className="mb-4 w-full">
       {salaryInfoLines.map((line) => (
         <StatisticsInfoStroke
           key={line.name}
@@ -53,7 +53,7 @@ const StatisticsInfoSalary = () => {
           summary={line.summary}
         />
       ))}
-    </article>
+    </section>
   );
 };
 

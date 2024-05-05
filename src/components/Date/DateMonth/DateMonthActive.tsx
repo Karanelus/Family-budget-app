@@ -1,4 +1,5 @@
 import { useAppContextContainer } from "../../../context/AppContext";
+import DateMonthActionButton from "./DateMonthActionButton";
 
 type Props = {
   month: string;
@@ -6,19 +7,26 @@ type Props = {
 };
 
 const DateMonthActive = ({ month, monthNumber }: Props) => {
-  const { setCurrentDate } = useAppContextContainer();
+  const { expensesList, setExpensesList, currentDate } =
+    useAppContextContainer();
 
-  const onClickChangeMonth = () => {
-    setCurrentDate((prev) => ({ ...prev, month: monthNumber }));
+  const onClickRemoveMonth = () => {
+    const newExpensesList = { ...expensesList };
+    console.log(newExpensesList);
+    delete newExpensesList[currentDate.year][monthNumber];
+    setExpensesList(newExpensesList);
   };
 
   return (
-    <li
-      className="cursor-pointer rounded-sm hover:bg-zinc-700 dark:hover:bg-zinc-500"
-      onClick={onClickChangeMonth}
-    >
-      {month}
-    </li>
+    <>
+      <DateMonthActionButton
+        isMonthExist={true}
+        actionFunction={onClickRemoveMonth}
+        monthNumber={monthNumber}
+        isActive={true}
+        month={month}
+      />
+    </>
   );
 };
 

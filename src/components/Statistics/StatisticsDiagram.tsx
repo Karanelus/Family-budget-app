@@ -52,7 +52,7 @@ const StatisticsDiagram = () => {
   };
 
   return (
-    <section className="relative mx-auto mb-8 aspect-square w-1/2 dark:brightness-75">
+    <section className="relative mx-auto mb-8 aspect-square w-full dark:brightness-75">
       <article style={componentStyle} className="h-full rounded-full"></article>
     </section>
   );
