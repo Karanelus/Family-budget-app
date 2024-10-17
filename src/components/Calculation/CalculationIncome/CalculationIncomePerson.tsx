@@ -17,15 +17,15 @@ const CalculationIncomePerson = () => {
     const clickedNum = e.currentTarget.dataset.clicked;
     const firstPersonRef = firstPerson.current!;
     const secondPersonRef = secondPerson.current!;
-    const classChoosen = clickedNum === "1" ? firstPersonRef : secondPersonRef;
+    const classChosen = clickedNum === "1" ? firstPersonRef : secondPersonRef;
 
-    classChoosen.classList.toggle("before:w-full");
-    classChoosen.classList.toggle("before:w-0");
-    classChoosen.addEventListener(
+    classChosen.classList.toggle("before:w-full");
+    classChosen.classList.toggle("before:w-0");
+    classChosen.addEventListener(
       "transitionend",
       () => {
-        classChoosen.classList.toggle("before:w-full");
-        classChoosen.classList.toggle("before:w-0");
+        classChosen.classList.toggle("before:w-full");
+        classChosen.classList.toggle("before:w-0");
         setExpensesList((prev) => ({
           ...prev,
           [currentDate.year]: {
@@ -86,7 +86,7 @@ const CalculationIncomePerson = () => {
     }));
   };
 
-  const onChageEditedName = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeEditedName = (e: React.ChangeEvent<HTMLInputElement>) => {
     const clickedNum = e.currentTarget.dataset.clicked!;
 
     setExpensesList((prev) => ({
@@ -121,7 +121,7 @@ const CalculationIncomePerson = () => {
               personName={person.partner}
               personSalary={person.salary}
               onClickEditName={onClickEditName}
-              onChageEditedName={onChageEditedName}
+              onChangeEditedName={onChangeEditedName}
               onChangeSalary={onChangeSalary}
             />
           ) : (

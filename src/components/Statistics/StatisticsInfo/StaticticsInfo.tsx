@@ -1,13 +1,13 @@
-import StatisticsInfoProcent from "./StatisticsInfoProcent/StatisticsInfoProcent";
+import StatisticsInfoPercent from "./StatisticsInfoPercent/StatisticsInfoPercent";
 import StatisticsInfoSalary from "./StatisticsInfoSalary/StatisticsInfoSalary";
 
-const StaticticsInfo = () => {
+const StatisticsInfo = () => {
   return (
     <div className="md: mx-auto w-3/4">
       <StatisticsInfoSalary />
-      <StatisticsInfoProcent />
+      <StatisticsInfoPercent />
     </div>
   );
 };
 
-export default StaticticsInfo;
+export default StatisticsInfo;

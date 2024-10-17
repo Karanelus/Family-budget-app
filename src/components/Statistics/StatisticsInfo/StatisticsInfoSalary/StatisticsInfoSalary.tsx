@@ -10,37 +10,28 @@ const StatisticsInfoSalary = () => {
   const expensesListShortcut =
     expensesList[currentDate.year][currentDate.month];
 
-  const salaryCounting = (): number => {
-    let sum = 0;
+  const summarySalary = expensesListShortcut.persons.reduce(
+    (a, b) => a + b.salary,
+    0,
+  );
 
-    expensesListShortcut.persons.forEach((partner) => {
-      sum += partner.salary;
-    });
-
-    return sum;
-  };
-  const outgoesCounting = (): number => {
-    let sum = 0;
-
-    expensesListShortcut.expenses.forEach((expense) => {
-      sum += expense.feeCost;
-    });
-
-    return sum;
-  };
+  const summaryFee = expensesListShortcut.expenses.reduce(
+    (a, b) => a + b.feeCost,
+    0,
+  );
 
   const salaryInfoLines = [
     {
       name: t(`STATISTICS_INFO.SUM_SALARY`),
-      summary: salaryCounting(),
+      summary: summarySalary,
     },
     {
       name: t(`STATISTICS_INFO.SUM_EXPENSES`),
-      summary: outgoesCounting(),
+      summary: summaryFee,
     },
     {
       name: t(`STATISTICS_INFO.FAMILY_USE`),
-      summary: salaryCounting() - outgoesCounting(),
+      summary: summarySalary - summaryFee,
     },
   ];
 

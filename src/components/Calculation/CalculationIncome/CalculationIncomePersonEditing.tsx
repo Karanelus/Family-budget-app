@@ -6,7 +6,7 @@ type Props = {
   id: string;
   personName: string;
   personSalary: number;
-  onChageEditedName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeEditedName: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClickEditName: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onChangeSalary: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -16,7 +16,7 @@ const CalculationIncomePersonEditing = ({
   id,
   personName,
   personSalary,
-  onChageEditedName,
+  onChangeEditedName,
   onClickEditName,
   onChangeSalary,
 }: Props) => {
@@ -32,7 +32,7 @@ const CalculationIncomePersonEditing = ({
           <input
             type="text"
             value={personName}
-            onChange={onChageEditedName}
+            onChange={onChangeEditedName}
             data-clicked={id}
             className="rounded-md bg-transparent px-1 outline outline-2 -outline-offset-1 outline-gray-400 dark:text-black dark:outline-gray-600"
           />

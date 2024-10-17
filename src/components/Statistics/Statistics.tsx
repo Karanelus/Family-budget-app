@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import StatisticsDiagram from "./StatisticsDiagram";
-import StaticticsInfo from "./StatisticsInfo/StaticticsInfo";
+import StatisticsInfo from "./StatisticsInfo/StaticticsInfo";
 
 const Statistics = () => {
   const { t } = useTranslation();
@@ -10,7 +10,7 @@ const Statistics = () => {
       <h2 className="mb-4">{t(`TITLE.STATISTICS`)}</h2>
       <section className=" mx-auto h-[calc(100%-3.25rem)] w-1/2">
         <StatisticsDiagram />
-        <StaticticsInfo />
+        <StatisticsInfo />
       </section>
     </section>
   );

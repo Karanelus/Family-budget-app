@@ -6,39 +6,31 @@ const StatisticsDiagram = () => {
   const expensesListShortcut =
     expensesList[currentDate.year][currentDate.month];
 
-  const summarySalary = () => {
-    let sumSalary = 0;
-    expensesListShortcut.persons.forEach((person) => {
-      sumSalary += person.salary;
-    });
-    return sumSalary;
-  };
+  const summarySalary = expensesListShortcut.persons.reduce(
+    (a, b) => a + b.salary,
+    0,
+  );
 
-  const summaryFee = (): number => {
-    let sum = 0;
+  const summaryFee = expensesListShortcut.expenses.reduce(
+    (a, b) => a + b.feeCost,
+    0,
+  );
 
-    expensesListShortcut.expenses.forEach((expense) => {
-      sum += expense.feeCost;
-    });
-
-    return sum;
-  };
-
-  const countPosition = countPercent(summarySalary(), summaryFee(), true);
+  const countPosition = countPercent(summarySalary, summaryFee, true);
 
   const statusReport = (): string => {
-    let rayPlasing = countPosition;
-    let statusReportText = `conic-gradient(#adadad ${rayPlasing}%`;
+    let rayPlacing = countPosition;
+    let statusReportText = `conic-gradient(#adadad ${rayPlacing}%`;
 
     if (expensesListShortcut.expenses.length === 0) {
       statusReportText += `, #0000 0`;
     } else {
       expensesListShortcut.expenses.forEach((expense) => {
-        const nextRayPlasing = countPercent(summarySalary(), expense.feeCost);
-        let nextRay = rayPlasing + nextRayPlasing;
+        const nextRayPlacing = countPercent(summarySalary, expense.feeCost);
+        let nextRay = rayPlacing + nextRayPlacing;
 
-        statusReportText += `,${expense.color} ${rayPlasing}% ${nextRay}%`;
-        rayPlasing = nextRay;
+        statusReportText += `,${expense.color} ${rayPlacing}% ${nextRay}%`;
+        rayPlacing = nextRay;
       });
     }
 

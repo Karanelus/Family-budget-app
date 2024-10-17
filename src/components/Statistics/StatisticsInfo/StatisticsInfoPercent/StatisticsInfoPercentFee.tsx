@@ -2,17 +2,17 @@ import { useAppContextContainer } from "../../../../context/AppContext";
 import StatisticsInfoStroke from "../StatisticsInfoStroke";
 
 type Props = {
-  salaryCounting: () => number;
+  salaryCounting: number;
 };
 
-const StatisticsInfoProcentFee = ({ salaryCounting }: Props) => {
+const StatisticsInfoPercentFee = ({ salaryCounting }: Props) => {
   const { expensesList, currentDate, countPercent } = useAppContextContainer();
 
   return (
     <>
       {expensesList[currentDate.year][currentDate.month].expenses.map(
         (expense) => {
-          const feePercent = countPercent(salaryCounting(), expense.feeCost);
+          const feePercent = countPercent(salaryCounting, expense.feeCost);
 
           if (expense.isEdited) {
             return null;
@@ -33,4 +33,4 @@ const StatisticsInfoProcentFee = ({ salaryCounting }: Props) => {
   );
 };
 
-export default StatisticsInfoProcentFee;
+export default StatisticsInfoPercentFee;
